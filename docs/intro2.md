@@ -7,9 +7,12 @@ slug: /tcap
 
  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous" />
 
-TCAP is the World's First Total Cryptocurrency Market Capitalization created by [Cryptex Finance](https://cryptex.finance). Like a conventional index fund, TCAP gives holders a real-time price exposure to the total cryptocurrency market cap. TCAP is a 150% fully backed, fully collateralized asset that truly, accurately and safely represents the total market capitalization of the entire crypto complex.
+TCAP is the World's First Total Cryptocurrency Market Capitalization created by [Cryptex Finance](https://cryptex.finance). Like a conventional index fund, TCAP gives holders a real-time price exposure to the total cryptocurrency market cap. TCAP is not a fixed basket of tokens. TCAP is not an ICO, nor a rebased elastic. TCAP is a new, 150% fully backed, fully collateralized asset that’s both audited and accurately representative of the entire cryptocurrency complex by total market capitalization.
 
-The TCAP smart contract is powered by [Chainlink](https://chain.link/) oracles that blend total current real time market cap crypto data from seven of the top crypto data providers in the world and brings that data on chain. If the Total Market Cap is resting at 350 billion dollars. Then, just like the S&P 500 would, we add a divisor of 10 billion to that number. Based on this math, the calculation for TCAP would be as follows:
+TCAP is powered by decentralized [Chainlink](https://chain.link/) oracles that blend real time total market cap crypto data from seven of the most reputable crypto data providers in the world, subsequently bringing said data on chain to our TCAP smart contract. For example, as of this writing, total crypto market cap currently resides at 350 billion dollars. We then add a divisor to that number, just like the S&P 500 or any major
+financial index would.
+
+The price calculation for TCAP is as follows:
 
 $c$ = \$350,000,000,000
 
@@ -19,7 +22,7 @@ $r$ = $\frac{c}{d}$ = \$35.00
 
 Where $c$ is the total cryptocurrency market cap, $d$ is the divisor and $r$ is the TCAP token price.
 
-This real time total market cap data is then hosted on chain via our [TCAP smart contract](#TODO). Each TCAP is subsequently minted only upon being collateralized by an underlying asset, such as ETH, WBTC or DAI. What the user receives in return is a newly minted \$35 asset nominalized token that moves to the penny in real time to the underlying total market cap metric that it tracks. This new asset is algorithmically collateralized by the corresponding amount of ETH/ WBTC or DAI needed to properly 100% back each TCAP and boom, you now have price exposure to the entire cryptocurrency sector in a single solution. (note: this section needs illustrations)
+TCAPs are then minted upon being collateralized by an underlying asset, such as ETH, WBTC or DAI. What the user receives in return is a newly minted asset nominalized token that moves in real time to the penny of the underlying total market cap metric our [TCAP Smart Contract](#TODO) is tracking. Each TCAP is algorithmically collateralized by a corresponding amount of ETH/ WBTC or DAI needed to appropriately back each token by 150%, thus creating price exposure to the entire cryptocurrency sector with the single push of a button.
 
 ## Components
 
