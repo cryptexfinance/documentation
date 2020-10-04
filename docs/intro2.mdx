@@ -5,7 +5,14 @@ sidebar_label: What is TCAP?
 slug: /tcap
 ---
 
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous" />
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+  integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+  crossorigin="anonymous"
+/>
 
 TCAP is the World's First Total Cryptocurrency Market Capitalization created by [Cryptex Finance](https://cryptex.finance). Like a conventional index fund, TCAP gives holders a real-time price exposure to the total cryptocurrency market cap. TCAP is not a fixed basket of tokens. TCAP is not an ICO, nor a rebased elastic. TCAP is a new, 150% fully backed, fully collateralized asset that’s both audited and accurately representative of the entire cryptocurrency complex by total market capitalization.
 
@@ -26,8 +33,12 @@ TCAPs are then minted upon being collateralized by an underlying asset, such as 
 
 ## Components
 
-Total Market Cap Price Oracle Contract. The smart contract that will store the actualized price feed of the total market value provided by Nomics Private Key. The TCAP proxy contract will use these values.
+<img alt="TCAP Components" src={useBaseUrl("img/TCAP_Components.png")} />
 
-ETH/USD Price Oracle Contract. Minting TCAP.X requires a collateralization of ETH, this oracle provides a feed for the current price of ETH/USD. Right now Chainlink Oracle is implemented.
+**Total Market Cap Price Oracle Contract**. The smart contract that will store the actualized
+price feed of the total market value provided by Nomics Private Key. The TCAP proxy
+contract will use these values.
 
-ERC20 Token Contract. ERC20 Compliant contract that will be in charge of handling the TCAP.X token logic.
+**ETH/USD Price Oracle Contract**. Minting TCAP requires a collateralization of ETH, this oracle provides a feed for the current price of ETH/USD. Right now Chainlink Oracle is implemented.
+
+**ERC20 Token Contract**. ERC20 Compliant contract that will be in charge of handling the TCAP token logic.
