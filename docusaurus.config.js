@@ -1,18 +1,25 @@
+const remarkMath = require("remark-math");
+const rehypeKatex = require("rehype-katex");
+
 module.exports = {
   title: "Cryptex",
   tagline: "The first total market cap token",
   url: "https://cryptex.finance",
   baseUrl: "/",
   onBrokenLinks: "throw",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon.png",
   organizationName: "cryptex", // Usually your GitHub org/user name.
   projectName: "tcap", // Usually your repo name.
   themeConfig: {
+    algolia: {
+      apiKey: "882821d106ded887254b7b5ec5690c5b", //Change to one of tcap
+      indexName: "liliot_wiki",
+    },
     navbar: {
       title: "TCAP Documentation",
       logo: {
-        alt: "Logo",
-        src: "img/tcap-icon.png",
+        alt: "Tcap Icon",
+        src: "img/tcap-icon-white.png",
       },
       items: [
         {
@@ -35,52 +42,12 @@ module.exports = {
     },
     footer: {
       style: "dark",
-      links: [
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "Style Guide",
-              to: "docs/",
-            },
-            {
-              label: "Second Doc",
-              to: "docs/doc2/",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
-              label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/docusaurus",
-            },
-          ],
-        },
-        {
-          title: "More",
-          items: [
-            {
-              label: "Blog",
-              to: "blog",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      links: [],
+      logo: {
+        alt: "Cryptex Logo",
+        src: "img/Logo.png",
+      },
+      copyright: `Copyright © ${new Date().getFullYear()} Cryptex Finance.`,
     },
   },
   presets: [
@@ -88,20 +55,28 @@ module.exports = {
       "@docusaurus/preset-classic",
       {
         docs: {
-          routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [[rehypeKatex, { strict: false }]],
+          routeBasePath: "/",
+
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/",
+          // editUrl:
+          //   "https://github.com/facebook/docusaurus/edit/master/website/",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            "https://github.com/facebook/docusaurus/edit/master/website/blog/",
+          // editUrl:
+          //   "https://github.com/facebook/docusaurus/edit/master/website/blog/",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
+        },
+        sitemap: {
+          cacheTime: 600 * 1000, // 600 sec - cache purge period
+          changefreq: "weekly",
+          priority: 0.5,
         },
       },
     ],
