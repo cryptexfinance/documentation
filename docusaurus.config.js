@@ -11,6 +11,10 @@ module.exports = {
   organizationName: "cryptex", // Usually your GitHub org/user name.
   projectName: "tcap", // Usually your repo name.
   themeConfig: {
+    prism: {
+      additionalLanguages: ["solidity"],
+      theme: require("prism-react-renderer/themes/synthwave84"),
+    },
     algolia: {
       apiKey: "882821d106ded887254b7b5ec5690c5b", //Change to one of tcap
       indexName: "liliot_wiki",
