@@ -83,7 +83,12 @@ LogBurn(address _owner, uint256 _id, uint256 _amount);
 ```
 
 ```sol
-LogLiquidateVault(uint256 _vaultId, address _liquidator, uint256 _liquidationCollateral, uint256 _reward);
+LogLiquidateVault(
+  uint256 _vaultId,
+  address _liquidator,
+  uint256 _liquidationCollateral,
+  uint256 _reward
+);
 ```
 
 ```sol
@@ -133,10 +138,11 @@ $d$ = Divisor
 ### requiredCollateral
 
 ```sol
-function requiredCollateral(uint256 _amount) public virtual view returns (uint256 collateral);
+function requiredCollateral(uint256 _amount) public virtual view
+  returns (uint256 collateral);
 ```
 
-Returns the minimal required collateral to mint TCAP token. The formula for calculating the price is:
+Returns the minimal required collateral to mint TCAP token. The formula for calculating the required collateral is:
 
 $C$ = $\frac{(P * A * r) / 100}{cp}$
 
@@ -152,175 +158,349 @@ $cp$ = Collateral Price
 
 `It's divided by 100 as eth price comes in wei to cancel the additional 0s`
 
-### `requiredLiquidationCollateral(uint256 _vaultId) → uint256 collateral` (public)
+### requiredLiquidationCollateral
 
-Returns the minimal required TCAP to liquidate a Vault
+```sol
+function requiredLiquidationCollateral(uint256 _vaultId)
+  public
+  virtual
+  view
+  returns (uint256 collateral);
+```
 
-LC = ((((D _ r) / 100) - cTcap) _ 100) / (r - (p + 100))
-cTcap = ((C \* cp) / P)
-LC = Required Liquidation Collateral
-D = Vault Debt
-C = Required Collateral
-P = TCAP Token Price
-cp = Collateral Price
-r = Min Vault Ratio
-p = Liquidation Penalty
+Returns the minimal required TCAP to liquidate a Vault. The formula for calculating the required collateral is:
 
-### `liquidationReward(uint256 _vaultId) → uint256 rewardCollateral` (public)
+$LC$ = $\frac{(((D * r) / 100) - cTcap) * 100}{ (r - (p + 100))}$
 
-Returns the minimal required TCAP to liquidate a Vault
+$cTcap$ = $\frac{C/cp}{P}$
 
-the returned value is returned on the vault collateral
-R = (LC \* (p + 100)) / 100
-R = Liquidation Reward
-LC = Required Liquidation Collateral
-p = liquidation penalty
+`Where`
 
-### `getVault(uint256 _id) → uint256, uint256, address, uint256` (public)
+$LC$ = Required Liquidation Collateral
 
-Returns the Vault information
+$D$ = Vault Debt
 
-### `getVaultRatio(uint256 _vaultId) → uint256 currentRatio` (public)
+$C$ = Required Collateral
 
-Returns the Collateral Ratio fo the Vault
+$P$ = TCAP Token Price
 
-vr = (cp _ (C _ 100)) / D - P
-vr = Vault Ratio
-C = Vault Collateral
-cp = Collateral Price
-D = Vault Debt
-P = TCAP Token Price
+$cp$ = Collateral Price
 
-### `getFee(uint256 _amount) → uint256 fee` (public)
+$r$ = Min Vault Ratio
+
+$p$ = Liquidation Penalty
+
+### liquidationReward
+
+```sol
+function liquidationReward(uint256 _vaultId)
+  public
+  virtual
+  view
+  returns (uint256 rewardCollateral);
+```
+
+Returns the reward for liquidating a vault, the reward is taken from the liquidated vault. The formula for calculating the reward is:
+
+$R$ = $\frac{(LC * (p + 100))} {100}$
+
+`Where`
+
+$R$ = Liquidation Reward
+
+$LC$ = Required Liquidation Collateral
+
+$p$ = liquidation penalty
+
+### getVault
+
+```sol
+function getVault(uint256 _id)
+  public
+  virtual
+  view
+  returns (uint256, uint256, address, uint256);
+```
+
+Returns the Vault information.
+
+### getVaultRatio
+
+```sol
+function getVaultRatio(uint256 _vaultId)
+  public
+  virtual
+  view
+  returns (uint256 currentRatio);
+```
+
+Returns the Collateral Ratio fo the Vault. The formula for calculating the ratio is:
+
+$vr$ = $\frac{cp * C * 100}{D - P}$
+
+`Where`
+
+$vr$ = Vault Ratio
+
+$C$ = Vault Collateral
+
+$cp$ = Collateral Price
+
+$D$ = Vault Debt
+
+$P$ = TCAP Token Price
+
+### getFee
+
+```sol
+ function getFee(uint256 _amount) public virtual view returns (uint256 fee);
+```
+
+Returns the required fee to burn the TCAP tokens, the returned value is returned on ETH. The formula for calculating the burning fee is:
+
+$f$ = $\frac{((P * A * b)}{100}$
+
+$f$ = Burn Fee Value
+
+$P$ = TCAP Token Price
+
+$A$ = Amount to Burn
+
+$b$ = Burn Fee %
+
+### \_checkBurnFee
+
+```sol
+function _checkBurnFee(uint256 _amount) internal;
+```
 
 Returns the required fee to burn the TCAP tokens
 
-The returned value is returned on ETH
-f = ((P _ A _ b)/ 100)
-f = Burn Fee Value
-P = TCAP Token Price
-A = Amount to Burn
-b = Burn Fee %
+### supportsInterface
 
-### `_checkBurnFee(uint256 _amount)` (internal)
-
-Returns the required fee to burn the TCAP tokens
-
-### `_burn(uint256 _vaultId, uint256 _amount)` (internal)
-
-Burns an amount of TCAP Tokens
-
-### `supportsInterface(bytes4 interfaceId) → bool` (external)
+```sol
+function supportsInterface(bytes4 interfaceId)
+  external
+  override
+  view
+  returns (bool);
+```
 
 ERC165 Standard for support of interfaces
 
 ## State-Changing Functions
 
-### `constructor(contract Orchestrator _orchestrator)` (public)
+### constructor
 
-counter starts in one as 0 is reserved for empty objects
+```sol
+constructor(Orchestrator _orchestrator) public;
+```
 
-### `initialize(uint256 _divisor, uint256 _ratio, uint256 _burnFee, uint256 _liquidationPenalty, address _tcapOracle, contract TCAP _tcapAddress, address _collateralAddress, address _collateralOracle, address _ethOracle)` (public)
+Called once the contract it's deployed, sets the orchestrator as owner. It also sets the vault counter to 1 as 0 is reserved for empty objects.
 
-Allows the orchestrator to initialize the contract
+### initialize
 
-Only owner can call it
-Can only be called once
+```sol
+function initialize(
+  uint256 _divisor,
+  uint256 _ratio,
+  uint256 _burnFee,
+  uint256 _liquidationPenalty,
+  address _tcapOracle,
+  TCAP _tcapAddress,
+  address _collateralAddress,
+  address _collateralOracle,
+  address _ethOracle
+) public virtual onlyOwner;
+```
 
-### `setTCAPContract(contract TCAP _TCAPToken)` (public)
+Allows the orchestrator to initialize the contract. Only owner can call it. Can only be called once.
 
-Sets the address of the TCAP ERC20 contract
+### setTCAPContract
 
-Only owner can call it
+```sol
+function setTCAPContract(TCAP _TCAPToken) public virtual onlyOwner;
+```
 
-### `setTCAPOracle(contract ChainlinkOracle _oracle)` (public)
+Sets the address of the TCAP ERC20 contract. Only owner can call it.
 
-Sets the address of the oracle contract for the price feed
+### setTCAPOracle
 
-Only owner can call it
+```sol
+function setTCAPOracle(ChainlinkOracle _oracle) public virtual onlyOwnerl;
+```
 
-### `setCollateralContract(contract IERC20 _collateralContract)` (public)
+Sets the address of the oracle contract for the price feed. Only owner can call it.
 
-Sets the address of the collateral contract
+### setCollateralContract
 
-Only owner can call it
+```sol
+function setCollateralContract(IERC20 _collateralContract)
+  public
+  virtual
+  onlyOwner;
+```
 
-### `setCollateralPriceOracle(contract ChainlinkOracle _collateral)` (public)
+Sets the address of the collateral contract. Only owner can call it.
 
-Sets the address of the oracle contract for the price feed
+### setCollateralPriceOracle
 
-Only owner can call it
+```sol
+function setCollateralPriceOracle(ChainlinkOracle _collateral)
+  public
+  onlyOwner;
+```
 
-### `setETHPriceOracle(contract ChainlinkOracle _ethPriceOracle)` (public)
+Sets the address of the oracle contract for the price feed. Only owner can call it.
 
-Sets the address of the oracle contract for the ETH price feed
+### setETHPriceOracle
 
-Only owner can call it
+```sol
+setETHPriceOracle(ChainlinkOracle _ethPriceOracle) public onlyOwner;
+```
 
-### `setDivisor(uint256 _divisor)` (public)
+Sets the address of the oracle contract for the ETH price feed. Only owner can call it.
 
-Sets the divisor amount for token price calculation
+### setDivisor
 
-Only owner can call it
+```sol
+setDivisor(uint256 _divisor) public virtual onlyOwner;
+```
 
-### `setRatio(uint256 _ratio)` (public)
+Sets the divisor amount for token price calculation. Only owner can call it.
 
-Sets the collateral ratio needed to mint tokens
+### setRatio
 
-Only owner can call it
+```sol
+function setRatio(uint256 _ratio) public virtual onlyOwner;
+```
 
-### `setBurnFee(uint256 _burnFee)` (public)
+Sets the collateral ratio needed to mint tokens. Only owner can call it.
 
-Sets the collateral ratio needed to mint tokens
+### setBurnFee
 
-Only owner can call it
+```sol
+function setBurnFee(uint256 _burnFee) public virtual onlyOwner;
+```
 
-### `setLiquidationPenalty(uint256 _liquidationPenalty)` (public)
+Sets the collateral ratio needed to mint tokens. Only owner can call it.
 
-Sets the liquidation penalty % charged on liquidation
+### setLiquidationPenalty
 
-Only owner can call it
+```sol
+function setLiquidationPenalty(uint256 _liquidationPenalty)
+  public
+  virtual
+  onlyOwner;
+```
 
-### `createVault()` (public)
+Sets the liquidation penalty % charged on liquidation. Only owner can call it.
 
-Creates a Vault
+### createVault
 
-### `addCollateral(uint256 _amount)` (public)
+```sol
+function createVault() public virtual whenNotPaused;
+```
 
-Adds collateral to vault
+Allows sender to creates a Vault with an unique ID. Only one vault per address can be created.
 
-\_amount should be higher than 0
+### addCollateral
 
-### `removeCollateral(uint256 _amount)` (public)
+```sol
+function addCollateral(uint256 _amount)
+  public
+  virtual
+  nonReentrant
+  vaultExists
+  whenNotPaused
+  notZero(_amount);
+```
 
-Removes not used collateral from collateral
+Adds collateral to vault,`_amount` should be higher than 0.
 
-\_amount should be higher than 0
+### removeCollateral
 
-### `mint(uint256 _amount)` (public)
+```sol
+function removeCollateral(uint256 _amount)
+  public
+  virtual
+  nonReentrant
+  vaultExists
+  whenNotPaused
+  notZero(_amount);
+```
 
-Mints TCAP Tokens staking the collateral
+Removes not used collateral from collateral, `_amount` should be higher than 0.
 
-\_amount should be higher than 0
+### mint
 
-### `burn(uint256 _amount)` (public)
+```sol
+function mint(uint256 _amount)
+  public
+  virtual
+  nonReentrant
+  vaultExists
+  whenNotPaused
+  notZero(_amount)
+```
 
-Burns TCAP Tokens releasing the staked collateral
+Mints TCAP Tokens staking the collateral,`_amount` should be higher than 0.
 
-\_amount should be higher than 0
+### \_burn
 
-### `liquidateVault(uint256 _vaultId, uint256 requiredCollateral)` (public)
+```sol
+function _burn(uint256 _vaultId, uint256 _amount) internal;
+```
 
-Allow users to liquidate vaults with low collateral ratio
+Internal function that burns the `_amount` of TCAP Tokens, called by the [burn](#burn) and [liquidateVault](#liquidateVault) functions.
 
-### `pause()` (public)
+### burn
 
-Allows owner to Pause the Contract
+```sol
+function burn(uint256 _amount)
+  public
+  virtual
+  payable
+  nonReentrant
+  vaultExists
+  whenNotPaused
+  notZero(_amount);
+```
 
-### `unpause()` (public)
+Burns TCAP Tokens releasing the staked collateral,`_amount` should be higher than 0. A fee on ETH must be paid when executing a TCAP burn, the fee is a % defined by the contract `burnFee` of the `_amount` of TCAP tokens to burn.
 
-Allows owner to Unpause the Contract
+### liquidateVault
 
-### `retrieveFees()` (public)
+```sol
+function liquidateVault(uint256 _vaultId, uint256 requiredCollateral)
+  public
+  payable
+  nonReentrant
+  whenNotPaused;
+```
 
-Sends the owner of the contract the Fees saved on ETH
+Allow users to liquidate vaults that have less ratio than the one defined on the contract`ratio`. The same burn fee has to be paid as the burn function is called. The vault owner also pays a % defined by `liquidationPenalty` to discourage users to get liquidated.
+
+### pause
+
+```sol
+function pause() public onlyOwner;
+```
+
+Allows owner to Pause the Contract.
+
+### unpause
+
+```sol
+  function unpause() public onlyOwner;
+```
+
+Allows owner to Unpause the Contract.
+
+### retrieveFees
+
+```sol
+function retrieveFees() public virtual onlyOwner;
+```
+
+Sends the owner of the contract the ETH generated by burning TCAP.
