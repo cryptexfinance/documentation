@@ -2,7 +2,7 @@
 id: ivaulthandler
 title: IVaultHandler
 sidebar_label: IVaultHandler
-slug: /ivaulthandler
+slug: /contracts/ivaulthandler
 ---
 
 <link
@@ -21,6 +21,25 @@ Abstract Contract in charge of handling the collateral and the minting of the TC
 ## Address
 
 TBD
+
+## ERC165 Introspection
+
+```sol
+initialize.selector ^
+setTCAPContract.selector ^
+setTCAPOracle.selector ^
+setCollateralContract.selector ^
+setCollateralPriceOracle.selector ^
+setETHPriceOracle.selector ^
+setDivisor.selector ^
+setRatio.selector ^
+setBurnFee.selector ^
+setLiquidationPenalty.selector ^
+pause.selector ^
+unpause.selector => 0x409e4a0f
+```
+
+The computed interface ID according to ERC-165. The interface ID is a XOR of all interface method selectors.
 
 ## Events
 
