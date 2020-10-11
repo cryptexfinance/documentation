@@ -8,6 +8,7 @@ module.exports = {
       "contracts/erc20vaulthandler",
       "contracts/tcap",
       "contracts/orchestrator",
+      "contracts/chainlink",
     ],
   },
 };

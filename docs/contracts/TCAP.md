@@ -27,7 +27,7 @@ transferFrom.selector ^
 approve.selector => 0xa9ccee51;
 ```
 
-the computed interface ID according to ERC-165. The interface ID is a XOR of all interface method selectors.
+The computed interface ID according to ERC-165. The interface ID is a XOR of all interface method selectors.
 
 ## Events
 
