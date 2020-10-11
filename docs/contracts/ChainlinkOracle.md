@@ -73,6 +73,8 @@ function supportsInterface(bytes4 interfaceId)
 
 ERC165 Standard for support of interfaces.
 
+## State-Changing Functions
+
 ### constructor
 
 ```sol
