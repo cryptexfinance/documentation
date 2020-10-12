@@ -202,7 +202,7 @@ function setTCAPOracle(IVaultHandler _vault, address _tcapOracle)
   );
 ```
 
-Sets the [TCAP Oracle Contract](/contracts/oracles/tcaporacle). Only owner can call it. Validates if `_vault` and `_tcapOracle` are valid and function is not locked.Locks function after using.
+Sets the [TCAP Oracle Contract](/contracts/chainlink). Only owner can call it. Validates if `_vault` and `_tcapOracle` are valid and function is not locked.Locks function after using.
 
 ### setCollateral
 
@@ -234,7 +234,7 @@ Sets the Collateral Contract. Only owner can call it. Validates if `_vault` is v
   );
 ```
 
-Sets the [Collateral Oracle Contract](/contracts/chainlinkoracle). Only owner can call it. Validates if `_vault` and `_collateralOracle` are valid and function is not locked.Locks function after using.
+Sets the [Collateral Oracle Contract](/contracts/chainlink). Only owner can call it. Validates if `_vault` and `_collateralOracle` are valid and function is not locked.Locks function after using.
 
 ### setETHOracle
 
@@ -250,7 +250,7 @@ Sets the [Collateral Oracle Contract](/contracts/chainlinkoracle). Only owner ca
   );
 ```
 
-Sets the [ETH Price Oracle Contract](/contracts/chainlinkoracle). Only owner can call it. Validates if `_vault` and `ethOracle` are valid and function is not locked. Locks function after using.
+Sets the [ETH Price Oracle Contract](/contracts/chainlink). Only owner can call it. Validates if `_vault` and `ethOracle` are valid and function is not locked. Locks function after using.
 
 ### pauseVault
 
