@@ -1,7 +1,7 @@
 module.exports = {
   tcapSidebar: {
-    Introduction: ["intro1", "intro2", "intro3", "intro4"],
-    "How To Use": ["intro1", "intro2", "intro3"],
+    Introduction: ["intro/cryptex", "intro/tcap", "intro/terminology", "intro/features"],
+    "How To Use": ["intro/cryptex", "intro/tcap", "intro/terminology"],
     Contracts: [
       "contracts/ivaulthandler",
       "contracts/ethvaulthandler",

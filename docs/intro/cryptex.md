@@ -1,5 +1,5 @@
 ---
-id: intro1
+id: cryptex
 title: Understanding Cryptex
 sidebar_label: Understanding Cryptex
 slug: /

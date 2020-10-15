@@ -1,8 +1,8 @@
 ---
-id: intro3
+id: terminology
 title: Terminology
 sidebar_label: Terminology
-slug: terminology
+slug: /terminology
 ---
 
 ### ERC20 Token
