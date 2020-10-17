@@ -40,7 +40,7 @@ TCAP architecture has the following components:
 
 The Orchestrator acts as the owner of Vaults and the TCAP Token. The Orchestrator implements a 3 day timelock for each function in order to change the configuration settings of it's child components, this adds a security layer for TCAP users as they can see in advance which changes are going to be implemented and prevent misbehavior. Read more details on the [Orchestrator Contract](contracts/orchestrator).
 
-### VaultHandler
+### Vault Handler
 
 The Vault handler is in charge of managing user vaults. Vaults allow users to stake a collateral to mint new TCAP Tokens. Only one vault per address can be generated in a Vault Handler. Each Vault Handler is connected to a TCAP Token, three Chainlink Oracle (TCAP Oracle, Collateral Oracle and an ETH Price Oracle). Parameters are handled by the Orchestrator. Read more details on the [Vault Handler Contract](contracts/ivaulthandler).
 
@@ -54,4 +54,4 @@ The Chainlink Oracle is a custom contract that connects to a Chainlink Oracles t
 
 ### Chainlink Aggregator
 
-Chainlink Aggregators are contracts created by Chainlink that allow TCAP contracts to connect with decentralized oracles on real time. Read more details on [Chainlink Aggregators](https://docs.chain.link/docs/get-the-latest-price)
+Chainlink Aggregators are contracts created by Chainlink that allow TCAP contracts to connect with decentralized oracles on real time. Read more details on [Chainlink Aggregators](https://docs.chain.link/docs/get-the-latest-price).

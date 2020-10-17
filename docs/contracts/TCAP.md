@@ -67,7 +67,7 @@ function _beforeTokenTransfer(
 ) internal virtual override;
 ```
 
-This function is called before the mint of tokens to check if the total supply isn't above the cap.
+This function is called before the mint of tokens to check if the total supply isn't above the cap. Reverts if TCAP tokens are sent to the TCAP contract.
 
 `See Open Zeppelin ERC20-_beforeTokenTransfer.`
 

@@ -43,7 +43,22 @@ Returns the latest answer from the referece contract multiplied by 10000000000 f
 function getLatestTimestamp() public view returns (uint256);
 ```
 
-Returns the last time the Oracle was updated.
+### getLatestRound
+
+```sol
+function getLatestRound()
+  public
+  view
+  returns (
+    uint80,
+    int256,
+    uint256,
+    uint256,
+    uint80
+  );
+```
+
+Returns the all the information from a round update on aggregator.
 
 ### getPreviousAnswer
 
@@ -60,6 +75,23 @@ function getPreviousTimestamp(uint256 _back) public view returns (uint256);
 ```
 
 Returns the previous time the Oracle was updated.
+
+### getRound
+
+```sol
+function getRound(uint80 _id)
+  public
+  view
+  returns (
+    uint80,
+    int256,
+    uint256,
+    uint256,
+    uint80
+  )
+```
+
+Returns the all the information from a previous aggregator round updated with the `_id`.
 
 ### supportsInterface
 
