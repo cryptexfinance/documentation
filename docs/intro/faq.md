@@ -22,7 +22,7 @@ TCAP uses Admin Keys to pause deposits and minting in case of a bug to protect u
 
 ### Is TCAP live yet?
 
-TCAP is currently live on Rinkeby Testnet, you can try TCAP going to [app.cryptex.finance](app.cryptex.finace)
+TCAP is currently live on Rinkeby Testnet, you can try TCAP going to [app.cryptex.finance](https://app.cryptex.finace)
 
 ### Who is TCAP for?
 
