@@ -3,9 +3,9 @@ module.exports = {
     Introduction: [
       "intro/cryptex",
       "intro/tcap",
-      "intro/key",
       "intro/faq",
       "intro/terminology",
+      "intro/whitepaper",
     ],
     // "How To Use": ["tbd"],
     Contracts: [

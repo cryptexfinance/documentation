@@ -20,10 +20,10 @@ module.exports = {
       indexName: "liliot_wiki",
     },
     navbar: {
-      title: "TCAP Documentation",
+      title: "Documentation",
       logo: {
         alt: "Tcap Icon",
-        src: "img/tcap-icon-white.png",
+        src: "img/tcap-logo.svg",
       },
       items: [
         {
@@ -49,7 +49,7 @@ module.exports = {
       links: [],
       logo: {
         alt: "Cryptex Logo",
-        src: "img/Logo.png",
+        src: "img/logo.svg",
       },
       copyright: `Copyright © ${new Date().getFullYear()} Cryptex Finance.`,
     },
