@@ -88,3 +88,21 @@ h4,
 h5 {
     font-family: "Nineteen Ninety Seven";
 }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    h1 {
+        font-size: var(--ifm-h1-font-size) !important;
+    }
+    h3 {
+        --ifm-h3-font-size: var(--ifm-h3-font-size) !important;
+    }
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    h1 {
+        font-size: var(--ifm-h1-font-size) !important;
+    }
+    h3 {
+        --ifm-h3-font-size: var(--ifm-h3-font-size) !important;
+    }
+}
