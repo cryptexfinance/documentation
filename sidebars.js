@@ -3,6 +3,7 @@ module.exports = {
         Introduction: [
             "intro/cryptex",
             "intro/tcap",
+            "intro/governance",
             "intro/faq",
             "intro/terminology",
             "intro/whitepaper",
