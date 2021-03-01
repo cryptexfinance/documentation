@@ -13,14 +13,46 @@ Extends [IVaultHandler](/contracts/ivaulthandler) allowing the use of an ERC20 a
 
 ## Address
 
-TBD
+#### Rinkeby
+
+| Contract          | Address                                                                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| WBTC VaultHandler | [0x82658c3a6a264E18B477cFe07e73423eaa147214](https://rinkeby.etherscan.io/address/0x82658c3a6a264E18B477cFe07e73423eaa147214#code) |
+| DAI VaultHandler  | [0x8eD3A1A6221c9B6DA1Af4F21dD98646137bCa5ad](https://rinkeby.etherscan.io/address/0x8eD3A1A6221c9B6DA1Af4F21dD98646137bCa5ad#code) |
 
 ## State-Changing Functions
 
 ### constructor
 
 ```sol
-constructor(Orchestrator _orchestrator) public;
+constructor(
+  Orchestrator _orchestrator,
+  uint256 _divisor,
+  uint256 _ratio,
+  uint256 _burnFee,
+  uint256 _liquidationPenalty,
+  address _tcapOracle,
+  TCAP _tcapAddress,
+  address _collateralAddress,
+  address _collateralOracle,
+  address _ethOracle,
+  address _rewardHandler,
+  address _treasury
+)
+  IVaultHandler(
+    _orchestrator,
+    _divisor,
+    _ratio,
+    _burnFee,
+    _liquidationPenalty,
+    _tcapOracle,
+    _tcapAddress,
+    _collateralAddress,
+    _collateralOracle,
+    _ethOracle,
+    _rewardHandler,
+    _treasury
+  );
 ```
 
 Called once the contract it's deployed, sets the orchestrator as owner. It also sets the vault counter to 1 as 0 is reserved for empty objects.
