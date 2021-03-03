@@ -76,18 +76,6 @@ An event emitted when a transaction is executed.
 
 ## Modifiers
 
-### notLocked
-
-```sol
-modifier notLocked(
-  address _contract,
-  Functions _fn,
-  bytes32 _value
-);
-```
-
-Throws if vault is locked also checks if the timelocked hash value it's the same as when calling the unlock function.
-
 ### onlyGuardian
 
 ```sol

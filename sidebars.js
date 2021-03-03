@@ -8,6 +8,7 @@ module.exports = {
             "intro/terminology",
             "intro/whitepaper",
         ],
+        Governance: ["governance/reference"],
         "How To Use": ["tbd"],
         Contracts: [
             "contracts/ivaulthandler",
