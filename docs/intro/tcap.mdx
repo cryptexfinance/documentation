@@ -28,7 +28,7 @@ $r$ = $\frac{c}{d}$ = \$35.00
 
 Where $c$ is the total cryptocurrency market cap, $d$ is the divisor and $r$ is the TCAP token price.
 
-TCAPs are then minted upon being collateralized by an underlying asset, such as ETH, WBTC or DAI. What the user receives in return is a newly minted asset nominalized token that moves in real time to the penny of the underlying total market cap metric our [TCAP Smart Contract](#TODO) is tracking. Each TCAP is algorithmically collateralized by a corresponding amount of ETH/ WBTC or DAI needed to appropriately back each token by 150%, thus creating price exposure to the entire cryptocurrency sector with the single push of a button.
+TCAPs are then minted upon being collateralized by an underlying asset, such as ETH, WBTC or DAI. What the user receives in return is a newly minted asset nominalized token that moves in real time to the penny of the underlying total market cap metric our [TCAP Smart Contract](contracts/tcap) is tracking. Each TCAP is algorithmically collateralized by a corresponding amount of ETH/ WBTC or DAI needed to appropriately back each token by 150%, thus creating price exposure to the entire cryptocurrency sector with the single push of a button.
 
 ## Components
 
@@ -36,22 +36,55 @@ TCAP architecture has the following components:
 
 <img alt="TCAP Components" src={useBaseUrl("img/CTX.png")} />
 
-### Orchestrator
+### Governance
 
-The Orchestrator acts as the owner of Vaults and the TCAP Token. The Orchestrator implements a 3 day timelock for each function in order to change the configuration settings of it's child components, this adds a security layer for TCAP users as they can see in advance which changes are going to be implemented and prevent misbehavior. Read more details on the [Orchestrator Contract](contracts/orchestrator).
+#### CTX
 
-### Vault Handler
+ERC-20 Token in charge of the Governance of the Protocol. Owners of the CTX Token are able to make proposals and vote to make protocol changes. Read more details on the [CTX Reference](governance/reference#read-only-functions-ctx).
 
-The Vault handler is in charge of managing user vaults. Vaults allow users to stake a collateral to mint new TCAP Tokens. Only one vault per address can be generated in a Vault Handler. Each Vault Handler is connected to a TCAP Token, three Chainlink Oracle (TCAP Oracle, Collateral Oracle and an ETH Price Oracle). Parameters are handled by the Orchestrator. Read more details on the [Vault Handler Contract](contracts/ivaulthandler).
+#### Governor Alpha
 
-### TCAP Token
+This contract is in charge of managing proposals and actions, CTX holders call it to vote or create new proposals with actions that will be queued into the Timelock if the voting is successful. Read more details on the
+[Governor Alpha Reference](reference#read-only-functions-governor-alpha)
+
+#### Timelock
+
+The Timelock contract can modify system parameters, logic, and contracts in a 'time-delayed, opt-out' upgrade pattern. Read more details on the [Timelock Reference](governance/reference#timelock)
+
+#### Orchestrator
+
+The Orchestrator acts as the owner of other TCAP Protocol Components. The Orchestrator functions can only be called by it's owner, the Timelock Contract controlled by CTX Governance. Read more details on the [Orchestrator Contract](contracts/orchestrator).
+
+#### Treasury
+
+Contract that handles the finances of the Protocol.
+
+### Vaults
+
+#### Vault Handler
+
+The Vault handler is in charge of managing user vaults. Vaults allow users to stake a collateral to mint new TCAP Tokens. Only one vault per address can be generated in a Vault Handler. Each Vault Handler is connected to a TCAP Token, three Chainlink Oracle (TCAP Oracle, Collateral Oracle and an ETH Price Oracle) a Treasury Contract and a CTX Reward Distributor. Parameters are handled by the Orchestrator. Read more details on the [Vault Handler Contract](contracts/ivaulthandler).
+
+#### TCAP Token
 
 The TCAP Token is an ERC20 compliant contract which can only be minted and burned by a Vault Handler. It behaves like a normal ERC20 Token with a cap parameter handled by the Orchestrator. Read more details on the [TCAP Token Contract](contracts/tcap).
 
-### Chainlink Oracle
+### Oracles
+
+#### Chainlink Oracle
 
 The Chainlink Oracle is a custom contract that connects to a Chainlink Oracles through an Aggregator. This allow the VaultHandler to read information from Chainlink on real time. Read more details on the [Chainlink Oracle Contract](contracts/chainlink).
 
-### Chainlink Aggregator
+#### Chainlink Aggregator
 
 Chainlink Aggregators are contracts created by Chainlink that allow TCAP contracts to connect with decentralized oracles on real time. Read more details on [Chainlink Aggregators](https://docs.chain.link/docs/get-the-latest-price).
+
+### Rewards
+
+#### Reward Handler
+
+The Reward Handler is in charge of the initial distribution of CTX for the first week of the Protocol launch, this early distribution will help bootstrap the governance to the community using the Cryptex Protocol. Read more details on [Reward Handler Contract](contracts/rewardhandler).
+
+#### Liquidity Reward
+
+The Reward Handler is in charge of handling CTX rewards for liquidity providers on the Sushiswap Protocol, rewards will help decentralize CTX as well as promoto liquidity of the TCAP token. Read more details on [Reward Handler Contract](contracts/rewardhandler).
