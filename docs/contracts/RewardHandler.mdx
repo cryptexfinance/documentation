@@ -1,0 +1,305 @@
+---
+id: rewardhandler
+title: Reward Handler
+sidebar_label: Reward Handler
+slug: /contracts/rewardhandler
+---
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossorigin="anonymous"
+/>
+
+Contract in charge of handling the initial bootstrap of CTX for the users that minted the TCAP Token.
+
+## Code
+
+[RewardHandler.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/RewardHandler.sol)
+
+## Address
+
+#### Rinkeby
+
+| Contract           | Address                                                                                                                            |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ETH RewardHandler  | [0x9e6ad39935AA04f3e1801205D4a8Ee1d9bEeFF11](https://rinkeby.etherscan.io/address/0x9e6ad39935AA04f3e1801205D4a8Ee1d9bEeFF11#code) |
+| WBTC RewardHandler | [0xd4341d449aCeceCb4Fe3566aFfA043032aF6b744](https://rinkeby.etherscan.io/address/0xd4341d449aCeceCb4Fe3566aFfA043032aF6b744#code) |
+| DAI RewardHandler  | [0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0](https://rinkeby.etherscan.io/address/0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0#code) |
+
+## Public Variables
+
+```sol
+IERC20 public rewardsToken;
+```
+
+Address of the reward.
+
+```sol
+address public vault;
+```
+
+Address of the vault
+
+```sol
+uint256 public periodFinish = 0;
+```
+
+Tracks the period where users stop earning rewards.
+
+```sol
+uint256 public rewardRate = 0;
+```
+
+Tracks the current reward rate.
+
+```sol
+uint256 public rewardsDuration = 7 days;
+```
+
+How long the rewards lasts, it updates when more rewards are added.
+
+```sol
+uint256 public lastUpdateTime;
+```
+
+Last time rewards were updated.
+
+```sol
+uint256 public rewardPerTokenStored;
+```
+
+Amount of reward calculated per token stored.
+
+```sol
+mapping(address => uint256) public userRewardPerTokenPaid;
+```
+
+Track the rewards paid to users.
+
+```sol
+mapping(address => uint256) public rewards;
+```
+
+Tracks the user rewards.
+
+## Private Variables
+
+```sol
+mapping(address => uint256) private _balances;
+```
+
+Tracks the amount of TCAP minted per user.
+
+## Events
+
+Events are called each time the state changes on the contract.
+
+```sol
+event RewardAdded(uint256 reward);
+```
+
+An event emitted when a reward is added.
+
+```sol
+event Staked(address indexed user, uint256 amount);
+```
+
+An event emitted when TCAP is minted and staked to earn rewards
+
+```sol
+event Withdrawn(address indexed user, uint256 amount);
+```
+
+An event emitted when TCAP is burned and removed of stake.
+
+```sol
+event RewardPaid(address indexed user, uint256 reward);
+```
+
+An event emitted when reward is paid to a user.
+
+```sol
+event RewardsDurationUpdated(uint256 newDuration);
+```
+
+An event emitted when the rewards duration is updated.
+
+```sol
+event Recovered(address token, uint256 amount);
+```
+
+An event emitted when a erc20 token is recovered.
+
+## Modifiers
+
+### updateReward
+
+```sol
+modifier updateReward(address _account);
+```
+
+Updates the reward and time on call.
+
+### onlyVault
+
+```sol
+modifier onlyVault();
+```
+
+Reverts if the caller is not a vault.
+
+## Read-Only Functions
+
+### totalSupply
+
+```sol
+function totalSupply() external view returns (uint256);
+```
+
+Returns the total amount of TCAP tokens minted and getting reward on this vault.
+
+### balanceOf
+
+```sol
+function balanceOf(address _account) external view returns (uint256);
+```
+
+Returns the amount of TCAP tokens minted and getting reward from specific user.
+
+### getRewardForDuration
+
+```sol
+function getRewardForDuration() external view returns (uint256);
+```
+
+Returns the Reward rate multiplied by the rewards duration time.
+
+### lastTimeRewardApplicable
+
+```sol
+function lastTimeRewardApplicable() public view returns (uint256);
+```
+
+Returns the minimun between current block timestamp or the finish period of rewards.
+
+### rewardPerToken
+
+```sol
+function rewardPerToken() public view returns (uint256);
+```
+
+Returns the calculated reward per token deposited.
+
+### earned
+
+```sol
+function earned(address _account) public view returns (uint256);
+```
+
+Returns the amount of reward tokens a `_account` has earned.
+
+### min
+
+```sol
+function min(uint256 _a, uint256 _b) public pure returns (uint256);
+```
+
+Returns the minimun between two variables.
+
+## State-Changing Functions
+
+### constructor
+
+```sol
+constructor(
+  address _owner,
+  address _rewardsToken,
+  address _vault
+);
+```
+
+Called once the contract it's deployed, sets the orchestrator as owner.
+
+### stake
+
+```sol
+function stake(address _staker, uint256 _amount)
+  external
+  onlyVault
+  nonReentrant
+  whenNotPaused
+  updateReward(_staker);
+```
+
+Called when TCAP is minted, adds the minted value as stake. Only vault can call it. Updates reward on call.
+
+### exit
+
+```sol
+function exit(address _staker) external onlyVault;
+```
+
+Removes all stake and transfers all rewards to the staker. Only vault can call it.
+
+### notifyRewardAmount
+
+```sol
+function notifyRewardAmount(uint256 _reward)
+  external
+  onlyOwner
+  updateReward(address(0));
+```
+
+Notifies the contract that reward has been added to be given. Only owner can call it. Increases duration of rewards.
+
+### recoverERC20
+
+```sol
+function recoverERC20(address _tokenAddress, uint256 _tokenAmount)
+  external
+  onlyOwner;
+```
+
+Added to support recovering LP Rewards from other systems such as BAL to be distributed to holders.
+
+### setRewardsDuration
+
+```sol
+function setRewardsDuration(uint256 _rewardsDuration) external onlyOwner;
+```
+
+Updates the reward duration. Only owner can call it. Previous rewards must be complete.
+
+### withdraw
+
+```sol
+function withdraw(address _staker, uint256 _amount)
+  public
+  onlyVault
+  nonReentrant
+  updateReward(_staker);
+```
+
+Called when TCAP is burned or liquidated, removes the burned value as stake. Only vault can call it. Updates rewards on call.
+
+### getRewardFromVault
+
+```sol
+function getRewardFromVault(address _staker)
+  public
+  onlyVault
+  nonReentrant
+  updateReward(_staker);
+```
+
+Called when TCAP is burned or liquidated, transfers to the staker the current amount of rewards tokens earned. Only vault can call it. Updates rewards on call.
+
+### getReward
+
+```sol
+function getReward() public nonReentrant updateReward(msg.sender);
+```
+
+Transfers to the caller the current amount of rewards tokens earned. Updates rewards on call.
