@@ -1,8 +1,8 @@
 ---
-id: rewardhandler
-title: Reward Handler
-sidebar_label: Reward Handler
-slug: /contracts/rewardhandler
+id: liquidityreward
+title: Liquidity Reward
+sidebar_label: Liquidity Reward
+slug: /contracts/liquidityreward
 ---
 
 <link
@@ -12,21 +12,22 @@ slug: /contracts/rewardhandler
     crossorigin="anonymous"
 />
 
-Contract in charge of handling the initial bootstrap of CTX for the users that minted the TCAP Token.
+Contract in charge of handling CTX rewards for liquidity providers.
 
 ## Code
 
-[RewardHandler.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/RewardHandler.sol)
+[LiquidityReward.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/LiquidityReward.sol)
 
 ## Address
 
 #### Rinkeby
 
-| Contract           | Address                                                                                                                            |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| ETH RewardHandler  | [0x9e6ad39935AA04f3e1801205D4a8Ee1d9bEeFF11](https://rinkeby.etherscan.io/address/0x9e6ad39935AA04f3e1801205D4a8Ee1d9bEeFF11#code) |
-| WBTC RewardHandler | [0xd4341d449aCeceCb4Fe3566aFfA043032aF6b744](https://rinkeby.etherscan.io/address/0xd4341d449aCeceCb4Fe3566aFfA043032aF6b744#code) |
-| DAI RewardHandler  | [0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0](https://rinkeby.etherscan.io/address/0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0#code) |
+| Contract             | Address                                                                                                                            |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ETH Liquidty Reward  | [0x7Cc49304b0Ef50f1e3F808D1E494149Ca177DFf7](https://rinkeby.etherscan.io/address/0x7Cc49304b0Ef50f1e3F808D1E494149Ca177DFf7#code) |
+| WBTC Liquidty Reward | [0x318B42b5b32EeFF0692bD427F0E4056e4DA590e2](https://rinkeby.etherscan.io/address/0x318B42b5b32EeFF0692bD427F0E4056e4DA590e2#code) |
+| DAI Liquidty Reward  | [0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0](https://rinkeby.etherscan.io/address/0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0#code) |
+| CTX Liquidty Reward  | [TBD](https://rinkeby.etherscan.io/address/0x2E0a511DD1d4aB8EB3F9c0441CfCcde19C9544F0#code)                                        |
 
 ## Public Variables
 
@@ -37,10 +38,10 @@ IERC20 public rewardsToken;
 Address of the reward.
 
 ```sol
-address public vault;
+IERC20 public stakingToken;
 ```
 
-Address of the vault.
+Address of the staking token.
 
 ```sol
 uint256 public periodFinish = 0;
@@ -55,7 +56,7 @@ uint256 public rewardRate = 0;
 Tracks the current reward rate.
 
 ```sol
-uint256 public rewardsDuration = 7 days;
+uint256 public rewardsDuration = 186 days;
 ```
 
 How long the rewards lasts, it updates when more rewards are added.
@@ -84,19 +85,43 @@ mapping(address => uint256) public rewards;
 
 Tracks the user rewards.
 
+```sol
+uint256 public vestingBegin;
+```
+
+Time were vesting begins.
+
+```sol
+uint256 public vestingEnd;
+```
+
+Time were vesting ends.
+
+```sol
+uint256 public vestingRatio;
+```
+
+Vesting ratio.
+
+```sol
+mapping(address => uint256) public vestingAmounts;
+```
+
+tracks vesting amount per user.
+
 ## Private Variables
 
 ```sol
 uint256 private _totalSupply;
 ```
 
-Tracks the total supply of the minted TCAPs.
+Tracks the total supply of staked tokens.
 
 ```sol
 mapping(address => uint256) private _balances;
 ```
 
-Tracks the amount of TCAP minted per user.
+Tracks the amount of staked tokens per user.
 
 ## Events
 
@@ -112,13 +137,13 @@ An event emitted when a reward is added.
 event Staked(address indexed user, uint256 amount);
 ```
 
-An event emitted when TCAP is minted and staked to earn rewards
+An event emitted when tokens are staked to earn rewards
 
 ```sol
 event Withdrawn(address indexed user, uint256 amount);
 ```
 
-An event emitted when TCAP is burned and removed of stake.
+An event emitted when staked tokens are withdrawn.
 
 ```sol
 event RewardPaid(address indexed user, uint256 reward);
@@ -148,14 +173,6 @@ modifier updateReward(address _account);
 
 Updates the reward and time on call.
 
-### onlyVault
-
-```sol
-modifier onlyVault();
-```
-
-Reverts if the caller is not a vault.
-
 ## Read-Only Functions
 
 ### totalSupply
@@ -164,7 +181,7 @@ Reverts if the caller is not a vault.
 function totalSupply() external view returns (uint256);
 ```
 
-Returns the total amount of TCAP tokens minted and getting reward on this vault.
+Returns the total amount of staked tokens.
 
 ### balanceOf
 
@@ -172,7 +189,7 @@ Returns the total amount of TCAP tokens minted and getting reward on this vault.
 function balanceOf(address _account) external view returns (uint256);
 ```
 
-Returns the amount of TCAP tokens minted and getting reward from specific user.
+Returns the amount of staked tokens from specific user.
 
 ### getRewardForDuration
 
@@ -222,7 +239,10 @@ Returns the minimun between two variables.
 constructor(
   address _owner,
   address _rewardsToken,
-  address _vault
+  address _stakingToken,
+  uint256 _vestingBegin,
+  uint256 _vestingEnd,
+  uint256 _vestingRatio
 );
 ```
 
@@ -231,23 +251,30 @@ Called once the contract it's deployed, sets the orchestrator as owner.
 ### stake
 
 ```sol
-function stake(address _staker, uint256 _amount)
+function stake(uint256 _amount)
   external
-  onlyVault
   nonReentrant
   whenNotPaused
-  updateReward(_staker);
+  updateReward(msg.sender);
 ```
 
-Called when TCAP is minted, adds the minted value as stake. Only vault can call it. Updates reward on call.
+Transfer staking token to contract. Updates reward on call.
 
 ### exit
 
 ```sol
-function exit(address _staker) external onlyVault;
+function exit() external;
 ```
 
-Removes all stake and transfers all rewards to the staker. Only vault can call it.
+Removes all stake and transfers all rewards to the staker.
+
+### claimVest
+
+```sol
+function claimVest() public;
+```
+
+Claims all vesting amount.
 
 ### notifyRewardAmount
 
@@ -281,26 +308,13 @@ Updates the reward duration. Only owner can call it. Previous rewards must be co
 ### withdraw
 
 ```sol
-function withdraw(address _staker, uint256 _amount)
+function withdraw(uint256 _amount)
   public
-  onlyVault
   nonReentrant
-  updateReward(_staker);
+  updateReward(msg.sender);
 ```
 
-Called when TCAP is burned or liquidated, removes the burned value as stake. Only vault can call it. Updates rewards on call.
-
-### getRewardFromVault
-
-```sol
-function getRewardFromVault(address _staker)
-  public
-  onlyVault
-  nonReentrant
-  updateReward(_staker);
-```
-
-Called when TCAP is burned or liquidated, transfers to the staker the current amount of rewards tokens earned. Only vault can call it. Updates rewards on call.
+Remove staking token and transfer back to staker. Updates rewards on call.
 
 ### getReward
 
@@ -308,4 +322,4 @@ Called when TCAP is burned or liquidated, transfers to the staker the current am
 function getReward() public nonReentrant updateReward(msg.sender);
 ```
 
-Transfers to the caller the current amount of rewards tokens earned. Updates rewards on call.
+Transfers to the caller the current amount of rewards tokens earned. Updates rewards on call. Only 70% of reward is inmediate transfered the rest is locked into vesting
