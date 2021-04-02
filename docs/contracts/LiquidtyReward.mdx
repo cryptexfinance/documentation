@@ -271,7 +271,7 @@ Removes all stake and transfers all rewards to the staker.
 ### claimVest
 
 ```sol
-function claimVest() public;
+function claimVest() external nonReentrant;
 ```
 
 Claims all vesting amount.

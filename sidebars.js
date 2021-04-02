@@ -7,7 +7,7 @@ module.exports = {
             "intro/terminology",
             "intro/whitepaper",
         ],
-        Governance: ["governance/governance", "governance/reference"],
+        Governance: ["governance/reference"],
         "How To Use": ["how"],
         Contracts: [
             "contracts/ivaulthandler",

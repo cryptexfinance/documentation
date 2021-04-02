@@ -13,12 +13,14 @@ Using a trust minimized oracle framework allows TCAP to minimize trust of Crypte
 ### What is TCAP backed by?
 
 Each TCAP is collateralized by more than 150% corresponding amount of ETH, WBTC or DAI.
-TCAP includes EVERY coin and token?
+
+### TCAP includes EVERY coin and token?
+
 TCAP includes every coin and token supported in one of our seven crypto data providers.
 
 ### Is TCAP decentralized?
 
-TCAP uses Admin Keys to pause deposits and minting in case of a bug to protect users, also uses the key to change state variables, we are securing this process by adding a timelock of three days, allowing users to see which value is going to change ahead of time. We expect to further decentralize TCAP as time goes on.
+TCAP uses Guardian Keys to pause deposits and minting in case of a bug to protect users, the rest of the protocol is managed by a timelock contract controled by CTX governance token. We expect to further decentralize TCAP as time goes on and burn the Guardian Keys.
 
 ### Is TCAP live yet?
 
