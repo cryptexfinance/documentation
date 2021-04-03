@@ -31,13 +31,13 @@ Contract in charge of handling the initial bootstrap of CTX for the users that m
 ## Public Variables
 
 ```sol
-IERC20 public rewardsToken;
+IERC20 public immutable rewardsToken;
 ```
 
 Address of the reward.
 
 ```sol
-address public vault;
+address public immutable vault;
 ```
 
 Address of the vault.
@@ -55,7 +55,7 @@ uint256 public rewardRate = 0;
 Tracks the current reward rate.
 
 ```sol
-uint256 public rewardsDuration = 7 days;
+uint256 public rewardsDuration = 14 days;
 ```
 
 How long the rewards lasts, it updates when more rewards are added.

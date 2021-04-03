@@ -68,31 +68,31 @@ Counters.Counter public counter;
 Vault Id counter.
 
 ```sol
-TCAP public TCAPToken;
+TCAP public immutable TCAPToken;
 ```
 
 TCAP Token Address.
 
 ```sol
-ChainlinkOracle public tcapOracle;
+ChainlinkOracle public immutable tcapOracle;
 ```
 
 Total Market Cap/USD Oracle Address.
 
 ```sol
-IERC20 public collateralContract;
+IERC20 public immutable collateralContract;
 ```
 
 Collateral Token Address.
 
 ```sol
-ChainlinkOracle public collateralPriceOracle;
+ChainlinkOracle public immutable collateralPriceOracle;
 ```
 
 Collateral/USD Oracle Address.
 
 ```sol
-ChainlinkOracle public ETHPriceOracle;
+ChainlinkOracle public immutable ETHPriceOracle;
 ```
 
 ETH/USD Oracle Address.
@@ -122,7 +122,7 @@ uint256 public liquidationPenalty;
 Penalty charged to vault owner when a vault is liquidated, this value goes to the liquidator.
 
 ```sol
-IRewardHandler public rewardHandler;
+IRewardHandler public immutable rewardHandler;
 ```
 
 Address of the contract that gives rewards to minters of TCAP, rewards are only given if address is set before minting.
@@ -151,6 +151,18 @@ uint256 public constant oracleDigits = 10000000000;
 
 Value used to multiply chainlink oracle for handling decimals.
 
+```sol
+uint256 public constant MIN_RATIO = 150;
+```
+
+Minimum value that the ratio can be set to.
+
+```sol
+uint256 public constant MAX_FEE = 10;
+```
+
+Maximum value that the burn fee can be set to.
+
 ## Private Variables
 
 ```sol
@@ -158,6 +170,12 @@ bytes4 private constant _INTERFACE_ID_IVAULT = 0x9e75ab0c;
 ```
 
 The computed interface ID according to ERC-165. Indicates if this contract supports the vault handler functions.
+
+```sol
+bytes4 private constant _INTERFACE_ID_TIMELOCK = 0x6b5cc770;
+```
+
+The computed interface ID according to ERC-165. Indicates if this contract supports the timelock functions.
 
 ```sol
 bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
@@ -189,12 +207,6 @@ event NewLiquidationPenalty(
 ```
 
 An event emitted when the liquidation penalty is updated.
-
-```sol
-event NewRewardHandler(address indexed _owner, address _rewardHandler);
-```
-
-An event emitted when the reward handler contract is updated.
 
 ```sol
 event NewTreasury(address indexed _owner, address _tresury);
@@ -282,14 +294,6 @@ modifier notZero(uint256 _value);
 ```
 
 Throws if value is 0.
-
-### withBurnFee
-
-```sol
-function withBurnFee(uint256 _amount);
-```
-
-Throws if burn is different than required.
 
 ## Read-Only Functions
 
@@ -525,14 +529,6 @@ function setLiquidationPenalty(uint256 _liquidationPenalty)
 
 Sets the liquidation penalty % charged on liquidation. Only owner can call it. recommended value is between 1-15% and can't be above 100%.
 
-### setRewardHandler
-
-```sol
-function setRewardHandler(address _rewardHandler) external virtual onlyOwner;
-```
-
-Sets the reward handler address used to give rewards to incentivize minting of TCAP. Only Owner can call it. if not set, rewards are not given.
-
 ### setTreasury
 
 ```sol
@@ -601,7 +597,6 @@ function burn(uint256 _amount)
   nonReentrant
   vaultExists
   whenNotPaused
-  withBurnFee(_amount)
   notZero(_amount);
 ```
 
@@ -615,7 +610,6 @@ function liquidateVault(uint256 _vaultId, uint256 _requiredTCAP)
   payable
   nonReentrant
   whenNotPaused
-  withBurnFee(_requiredTCAP)
 ```
 
 Allow users to burn TCAP tokens to liquidate vaults with current vault collateral `ratio` under the minium ratio, the liquidator receives the staked collateral of the liquidated vault at a premium.Resulting ratio must be above or equal minimun ratio. The fee goes to the treasury contract.

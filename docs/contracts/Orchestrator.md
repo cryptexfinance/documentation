@@ -173,17 +173,6 @@ function setEmergencyLiquidationPenalty(IVaultHandler _vault)
 
 Sets the liquidation penalty of a vault to 0, only used on a black swan event. Only guardian can call it.
 
-### setRewardHandler
-
-```sol
-function setRewardHandler(IVaultHandler _vault, address _rewardHandler)
-  external
-  onlyOwner
-  validVault(_vault);
-```
-
-Sets the reward handler address of a vault. Only owner can call it.
-
 ### pauseVault
 
 ```sol

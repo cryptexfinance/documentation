@@ -32,13 +32,13 @@ Contract in charge of handling CTX rewards for liquidity providers.
 ## Public Variables
 
 ```sol
-IERC20 public rewardsToken;
+IERC20 public immutable rewardsToken;
 ```
 
 Address of the reward.
 
 ```sol
-IERC20 public stakingToken;
+IERC20 public immutable stakingToken;
 ```
 
 Address of the staking token.
@@ -86,19 +86,13 @@ mapping(address => uint256) public rewards;
 Tracks the user rewards.
 
 ```sol
-uint256 public vestingBegin;
-```
-
-Time were vesting begins.
-
-```sol
-uint256 public vestingEnd;
+uint256 public immutable vestingEnd;
 ```
 
 Time were vesting ends.
 
 ```sol
-uint256 public vestingRatio;
+uint256 public immutable vestingRatio;
 ```
 
 Vesting ratio.
@@ -240,7 +234,6 @@ constructor(
   address _owner,
   address _rewardsToken,
   address _stakingToken,
-  uint256 _vestingBegin,
   uint256 _vestingEnd,
   uint256 _vestingRatio
 );
