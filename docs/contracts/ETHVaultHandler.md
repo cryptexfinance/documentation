@@ -9,7 +9,7 @@ Extends [IVaultHandler](/contracts/ivaulthandler) allowing the use of ETH and WE
 
 ## Code
 
-[ETHVaultHandler.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/ETHVaultHandler.sol)
+[ETHVaultHandler.sol](https://github.com/cryptexfinance/contracts/blob/master/contracts/ETHVaultHandler.sol)
 
 ## Address
 

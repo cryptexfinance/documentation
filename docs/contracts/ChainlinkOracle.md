@@ -9,7 +9,7 @@ This contract is in charge or reading the information from a Chainlink Oracle. T
 
 ## Code
 
-[ChainlinkOracle.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/oracles/ChainlinkOracle.sol)
+[ChainlinkOracle.sol](https://github.com/cryptexfinance/contracts/blob/master/contracts/oracles/ChainlinkOracle.sol)
 
 ## Contract Addresses
 

@@ -9,7 +9,7 @@ Extends [IVaultHandler](/contracts/ivaulthandler) allowing the use of an ERC20 a
 
 ## Code
 
-[ERC20VaultHandler.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/ERC20VaultHandler.sol)
+[ERC20VaultHandler.sol](https://github.com/cryptexfinance/contracts/blob/master/contracts/ERC20VaultHandler.sol)
 
 ## Address
 

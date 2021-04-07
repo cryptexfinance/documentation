@@ -9,7 +9,7 @@ Orchestrator contract in charge of managing the settings of the vaults, rewards 
 
 ## Code
 
-[Orchestrator.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/Orchestrator.sol)
+[Orchestrator.sol](https://github.com/cryptexfinance/contracts/blob/master/contracts/Orchestrator.sol)
 
 ## Address
 

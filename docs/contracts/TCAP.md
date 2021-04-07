@@ -9,7 +9,7 @@ ERC20 token on the Ethereum Blockchain that provides total exposure to the crypt
 
 ## Code
 
-[TCAP.sol](https://github.com/cryptexglobal/contracts/blob/master/contracts/TCAP.sol)
+[TCAP.sol](https://github.com/cryptexfinance/contracts/blob/master/contracts/TCAP.sol)
 
 ## Address
 

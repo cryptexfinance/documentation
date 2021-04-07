@@ -15,10 +15,10 @@ module.exports = {
             additionalLanguages: ["solidity"],
             theme: require("prism-react-renderer/themes/synthwave84"),
         },
-        algolia: {
-            apiKey: "882821d106ded887254b7b5ec5690c5b", //Change to one of tcap
-            indexName: "liliot_wiki",
-        },
+        // algolia: {
+        //     apiKey: "882821d106ded887254b7b5ec5690c5b", //Change to one of tcap
+        //     indexName: "liliot_wiki",
+        // },
         navbar: {
             title: "Documentation",
             logo: {
@@ -33,12 +33,12 @@ module.exports = {
                     position: "right",
                 },
                 {
-                    href: "https://medium.com/cryptexglobal",
+                    href: "https://medium.com/cryptexfinance",
                     label: "Blog",
                     position: "right",
                 },
                 {
-                    href: "https://github.com/cryptexglobal",
+                    href: "https://github.com/cryptexfinance",
                     label: "GitHub",
                     position: "right",
                 },
