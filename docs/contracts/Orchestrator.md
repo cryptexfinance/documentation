@@ -13,11 +13,17 @@ Orchestrator contract in charge of managing the settings of the vaults, rewards 
 
 ## Address
 
+#### Mainnet
+
+| Contract         | Address                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Orchestrator | [0x373c74bce7893097ab26d22f05691907d4f2c18e](https://etherscan.io/address/0x373c74bce7893097ab26d22f05691907d4f2c18e#code) |
+
 #### Rinkeby
 
 | Contract         | Address                                                                                                                            |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| ETH VaultHandler | [0xEF25580E76444A47d11A16F26A49DB1Bd1CA5CC9](https://rinkeby.etherscan.io/address/0xEF25580E76444A47d11A16F26A49DB1Bd1CA5CC9#code) |
+| Orchestrator | [0xEF25580E76444A47d11A16F26A49DB1Bd1CA5CC9](https://rinkeby.etherscan.io/address/0xEF25580E76444A47d11A16F26A49DB1Bd1CA5CC9#code) |
 
 ## Private Variables
 

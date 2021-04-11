@@ -13,6 +13,12 @@ Extends [IVaultHandler](/contracts/ivaulthandler) allowing the use of ETH and WE
 
 ## Address
 
+#### Mainnet
+
+| Contract         | Address                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ETH VaultHandler | [0x717170b66654292dfbd89c39f5ae6753d2ac1381](https://etherscan.io/address/0x717170b66654292dfbd89c39f5ae6753d2ac1381#code) |
+
 #### Rinkeby
 
 | Contract         | Address                                                                                                                            |
