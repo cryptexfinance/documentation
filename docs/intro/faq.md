@@ -12,7 +12,7 @@ Using a trust minimized oracle framework allows TCAP to minimize trust of Crypte
 
 ### What is TCAP backed by?
 
-Each TCAP is collateralized by more than 150% corresponding amount of ETH, WBTC or DAI.
+Each TCAP is collateralized by more than 200% corresponding amount of ETH or DAI.
 
 ### TCAP includes EVERY coin and token?
 
