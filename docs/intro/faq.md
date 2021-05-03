@@ -16,7 +16,7 @@ Each TCAP is collateralized by more than 150% corresponding amount of ETH, WBTC 
 
 ### TCAP includes EVERY coin and token?
 
-TCAP includes every coin and token supported in one of our seven crypto data providers.
+TCAP includes every coin and token supported by the following 9 oracles and 5 data providers https://data.chain.link/mcap-usd
 
 ### Is TCAP decentralized?
 
