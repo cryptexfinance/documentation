@@ -1,7 +1,7 @@
 ---
 id: delegatorFactory 
-title: DelegatorFactory
-sidebar_label: DelegatorFactory 
+title: Delegator Factory
+sidebar_label: Delegator Factory 
 slug: /contracts/delegatorFactory
 ---
 
