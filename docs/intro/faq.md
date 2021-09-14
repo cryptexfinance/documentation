@@ -12,11 +12,11 @@ Using a trust minimized oracle framework allows TCAP to minimize trust of Crypte
 
 ### What is TCAP backed by?
 
-Each TCAP is collateralized by more than 150% corresponding amount of ETH or DAI.
+Each TCAP is collateralized by more than 200% corresponding amount of ETH or DAI.
 
 ### TCAP includes EVERY coin and token?
 
-TCAP includes every coin and token supported in one of our seven crypto data providers.
+TCAP includes every coin and token supported by the following 9 oracles and 5 data providers https://data.chain.link/mcap-usd
 
 ### Is TCAP decentralized?
 
@@ -24,7 +24,7 @@ TCAP uses Guardian Keys to pause deposits and minting in case of a bug to protec
 
 ### Is TCAP live yet?
 
-TCAP is currently live on Rinkeby Testnet, you can try TCAP going to [app.cryptex.finance](https://app.cryptex.finace)
+TCAP is live! You can use TCAP by visiting app.cryptex.finance. We recommend you give our testnet a spin first to get familiar with the protocol by visiting https://medium.com/cryptexfinance/how-to-use-tcap-on-testnet-a0cef1c1f19c
 
 ### Who is TCAP for?
 

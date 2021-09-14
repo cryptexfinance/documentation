@@ -13,6 +13,12 @@ Extends [IVaultHandler](/contracts/ivaulthandler) allowing the use of an ERC20 a
 
 ## Address
 
+#### Mainnet
+
+| Contract          | Address                                                                                                                            |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| DAI VaultHandler  | [0x443366a7a5821619d8d57405511e4fadd9964771](https://etherscan.io/address/0x443366a7a5821619d8d57405511e4fadd9964771#code) |
+
 #### Rinkeby
 
 | Contract         | Address                                                                                                                            |

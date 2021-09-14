@@ -13,6 +13,14 @@ This contract is in charge or reading the information from a Chainlink Oracle. T
 
 ## Contract Addresses
 
+#### Mainnet
+
+| Pair             | Address                                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ETH/USD          | [0x2cFeaf282FE9ae050b210e7BDa65D288C40c6104](https://etherscan.io/address/0x2cFeaf282FE9ae050b210e7BDa65D288C40c6104#code) |
+| DAI/USD          | [0x6b5a75f38BeA1Ef59Bc43A5d9602e77Bcbe65e46](https://etherscan.io/address/0x6b5a75f38BeA1Ef59Bc43A5d9602e77Bcbe65e46#code) |
+| Total Market Cap | [0xa4e581BD159B869e8290707A7FBF841fe7FE97b6](https://etherscan.io/address/0xa4e581BD159B869e8290707A7FBF841fe7FE97b6#code) |
+
 #### Rinkeby
 
 | Pair             | Address                                                                                                                            |
