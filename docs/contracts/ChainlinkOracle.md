@@ -18,7 +18,6 @@ This contract is in charge or reading the information from a Chainlink Oracle. T
 | Pair             | Address                                                                                                                            |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | ETH/USD          | [0xc122B95f6Bcd2ba83fEfDcAD84f57e38Ca9daecf](https://rinkeby.etherscan.io/address/0xc122B95f6Bcd2ba83fEfDcAD84f57e38Ca9daecf#code) |
-| WBTC/USD         | [0xFC3481aFaD6686f557dbbDA909492C5Ae8dBeb51](https://rinkeby.etherscan.io/address/0xFC3481aFaD6686f557dbbDA909492C5Ae8dBeb51#code) |
 | DAI/USD          | [0x71263D4DBd31e57E334c7045e46eB781B9Db3386](https://rinkeby.etherscan.io/address/0x71263D4DBd31e57E334c7045e46eB781B9Db3386#code) |
 | Total Market Cap | [0x199e26325b1ebC1F736536f4FaeeddC4bb4D10a2](https://rinkeby.etherscan.io/address/0x199e26325b1ebC1F736536f4FaeeddC4bb4D10a2#code) |
 
