@@ -10,14 +10,18 @@ module.exports = {
         Governance: ["governance/reference"],
         "How To Use": ["how"],
         Contracts: [
-            "contracts/ivaulthandler",
-            "contracts/ethvaulthandler",
-            "contracts/erc20vaulthandler",
-            "contracts/tcap",
-            "contracts/rewardhandler",
-            "contracts/liquidityreward",
-            "contracts/orchestrator",
-            "contracts/chainlink",
+            {
+                Vaults: ["contracts/ivaulthandler",
+                    "contracts/ethvaulthandler",
+                    "contracts/erc20vaulthandler", "contracts/tcap", "contracts/orchestrator",
+                    "contracts/chainlink"]
+            },
+            {
+                Rewards: ["contracts/rewardhandler",
+                    "contracts/liquidityreward",]
+            },
+            {"Staking Contracts": ["contracts/delegator"]}
         ],
+
     },
 };
