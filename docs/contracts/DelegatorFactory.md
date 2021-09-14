@@ -1,11 +1,12 @@
 ---
-id: delegatorFactory
-title: Delegator Factory
-sidebar_label: DelegatorFactory
+id: delegatorFactory 
+title: DelegatorFactory
+sidebar_label: DelegatorFactory 
 slug: /contracts/delegatorFactory
 ---
 
-Contract in charge of generating Delegator contracts, handling delegations and CTX balance map, rewards.. Uses [Open Zeppelin Library](https://docs.openzeppelin.com/contracts/4.x/).
+Contract in charge of generating Delegator contracts, handling delegations and CTX balance map, rewards..
+Uses [Open Zeppelin Library](https://docs.openzeppelin.com/contracts/4.x/).
 
 ## Code
 
@@ -17,135 +18,235 @@ Contract in charge of generating Delegator contracts, handling delegations and C
 
 | Contract | Address                                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| TCAP     | [0x16c52ceece2ed57dad87319d91b5e3637d50afa4](https://etherscan.io/address/0x16c52ceece2ed57dad87319d91b5e3637d50afa4#code) |
+| DelegatorFactory  | [TBD](https://etherscan.io/address/TBD#code) |
 
 #### Rinkeby
 
 | Contract | Address                                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| TCAP     | [0x525471845A1b6E486930F4C8C50D21E7A4670fb2](https://rinkeby.etherscan.io/address/0x525471845A1b6E486930F4C8C50D21E7A4670fb2#code) |
-
-## ERC165 Introspection
-
-```sol
-mint.selector ^
-burn.selector ^
-setCap.selector ^
-enableCap.selector ^
-transfer.selector ^
-transferFrom.selector ^
-addVaultHandler.selector ^
-removeVaultHandler.selector ^
-approve.selector => 0xbd115939
-```
-
-The computed interface ID according to ERC-165. The interface ID is a XOR of all interface method selectors.
+| DelegatorFactory     | [0x0aafdB19021a3a87A510dD4db7dce62318b49Cd1](https://rinkeby.etherscan.io/address/0x0aafdB19021a3a87A510dD4db7dce62318b49Cd1#code) |
 
 ## Public Variables
 
 ```sol
-bool public capEnabled = false;
+address public immutable stakingToken;
 ```
 
-if enabled TCAP can't be minted if the total supply is above or equal the cap value.
+Address of the staking governance token.
 
 ```sol
-uint256 public cap;
+address public immutable rewardsToken;
 ```
 
-Maximum value the total supply of TCAP.
+Address of the reward token.
 
 ```sol
-mapping(address => bool) public vaultHandlers;
+uint256 public waitTime;
 ```
 
-Address to Vault Handler. Only vault handlers can mint and burn TCAP.
+Minimum wait time before removing stake.
+
+```sol
+uint256 public periodFinish = 0;
+```
+
+Tracks the period where users stop earning rewards.
+
+```sol
+uint256 public rewardRate = 0;
+```
+
+Tracks the reward rate that users can earn.
+
+```sol
+uint256 public rewardsDuration = 186 days;
+```
+
+How long the rewards lasts, it updates when more rewards are added.
+
+```sol
+uint256 public lastUpdateTime;
+```
+
+Last time rewards were updated.
+
+```sol
+uint256 public rewardPerTokenStored;
+```
+
+Amount of reward calculated per token stored.
+
+```sol
+mapping(address => uint256) public userRewardPerTokenPaid;
+```
+
+Track the rewards paid to users.
+
+```sol
+mapping(address => uint256) public rewards;
+```
+
+Tracks the user rewards.
+
+```sol
+mapping(address => address) public delegatorToDelegatee;
+```
+
+Tracks the address of a delegatee with a delegator contract address.
+
+```sol
+mapping(address => address) public delegateeToDelegator;
+```
+
+Tracks the delegator contract address from delegatee address.
+
+```sol
+mapping(address => bool) public delegators;
+```
+
+Tracks if address is an official delegator.
+
+```sol
+mapping(address => mapping(address => uint256)) public stakerWaitTime;
+```
+
+Tracks minimum wait time the account has to wait before removing stake.
 
 ## Private Variables
 
 ```sol
-bytes4 private constant _INTERFACE_ID_TCAP = 0xbd115939;
+uint256 private _totalSupply;
 ```
 
-The computed interface ID according to ERC-165. Indicates if this contract supports the tcap erc20 functions.
+Tracks the total supply of staked tokens.
 
 ```sol
-bytes4 private constant _INTERFACE_ID_ERC165 = 0x01ffc9a7;
+mapping(address => uint256) private _balances;
 ```
 
-The computed interface ID according to ERC-165. Indicates if this contract supports the ERC165 interface.
+Tracks the amount of staked tokens per user.
 
 ## Events
 
 Events are called each time the state changes on the contract.
 
 ```sol
-event VaultHandlerAdded(
-  address indexed _owner,
-  address indexed _tokenHandler
+event DelegatorCreated(address indexed delegator, address indexed delegatee);
+```
+
+An event emitted when a Delegator is created.
+
+```sol
+event Staked(
+   address indexed delegator,
+   address indexed delegatee,
+   uint256 amount
 );
 ```
 
-An event emitted when a vault handler is added.
+An event emitted when a user has staked and delegated.
 
 ```sol
-event VaultHandlerRemoved(
-  address indexed _owner,
-  address indexed _tokenHandler
+event Withdrawn(
+   address indexed delegator,
+   address indexed delegatee,
+   uint256 amount
 );
 ```
 
-An event emitted when a vault handler is removed.
+An event emitted when a user removes stake and undelegated.
 
 ```sol
-event NewCap(address indexed _owner, uint256 _amount);
+event WaitTimeUpdated(uint256 waitTime);
 ```
 
-An event emitted when the cap value is updated.
+An event emitted when the minimum wait time is updated.
 
 ```sol
-event NewCapEnabled(address indexed _owner, bool _enable);
+event RewardAdded(uint256 reward);
 ```
 
-An event emitted when the cap is enabled or disabled.
+An event emitted when a reward is added.
+
+```sol
+event RewardPaid(address indexed user, uint256 reward);
+```
+
+An event emitted when reward is paid to a user.
+
+```sol
+event RewardsDurationUpdated(uint256 newDuration);
+```
+
+An event emitted when the reward duration is updated.
 
 ## Modifiers
 
-### onlyVault
+### updateReward
 
 ```sol
-modifier onlyVault();
+modifier updateReward(address account_);
 ```
 
-Reverts if called by any account that is not a vault [Vault](/contracts/IVaultHandler).
+Updates the reward and time on call.
 
 ## Read-Only Functions
 
-### \_beforeTokenTransfer
+### totalSupply
 
 ```sol
-function _beforeTokenTransfer(
-  address _from,
-  address _to,
-  uint256 _amount
-) internal virtual override;
+function totalSupply() external view returns (uint256) ;
 ```
 
-This function is called before before each token transfer or mint, the mint of tokens to check if the total supply isn't above the cap. Reverts if TCAP tokens are sent to the TCAP contract.
+Returns the total amount of staked tokens.
 
-`See Open Zeppelin ERC20-_beforeTokenTransfer.`
-
-### supportsInterface
+### balanceOf
 
 ```sol
-function supportsInterface(bytes4 _interfaceId)
-  external
-  override
-  view
-  returns (bool);
+function balanceOf(address account_) external view returns (uint256);
 ```
 
-ERC165 Standard for support of interfaces.
+Returns the amount of staked tokens from specific user.
+
+### getRewardForDuration
+
+```sol
+ function getRewardForDuration() external view returns (uint256);
+```
+
+Returns reward rate for a duration.
+
+### lastTimeRewardApplicable
+
+```sol
+function lastTimeRewardApplicable() public view returns (uint256);
+```
+
+Returns the minimum between current block timestamp or the finish period of rewards.
+
+### rewardPerToken
+
+```sol
+function rewardPerToken() public view returns (uint256);
+```
+
+Returns the calculated reward per token deposited.
+
+### earned
+
+```sol
+function earned(address account_) public view returns (uint256);
+```
+
+Returns the amount of reward tokens a user has earned.
+
+### min
+
+```sol
+function min(uint256 a_, uint256 b_) public pure returns (uint256);
+```
+
+Returns the minimum between two variables.
 
 ## State-Changing Functions
 
@@ -153,59 +254,80 @@ ERC165 Standard for support of interfaces.
 
 ```sol
 constructor(
-  string memory _name,
-  string memory _symbol,
-  uint256 _cap,
-  Orchestrator _orchestrator
-) public ERC20(_name, _symbol);
+   address stakingToken_,
+   address rewardsToken_,
+   uint256 waitTime_,
+   address timelock_
+);
 ```
 
-Called once the contract it's deployed, sets the orchestrator as owner.
+Called once the contract it's deployed, transfers ownership to timelock.
 
-### addVaultHandler
+### notifyRewardAmount
 
 ```sol
-function addVaultHandler(address _vaultHandler) external onlyOwner ;
+function notifyRewardAmount(uint256 reward_)
+   external
+   onlyOwner
+   updateReward(address(0));
 ```
 
-Adds a new address as a vault [vault handler contract](/contracts/ivaulthandler). Only owner can call it.
+Notifies the contract that reward has been added to be given. Only owner can call it. Increases duration of rewards
 
-### removeVaultHandler
+### setRewardsDuration
 
 ```sol
-function removeVaultHandler(address _vaultHandler) external onlyOwner ;
+function setRewardsDuration(uint256 rewardsDuration_) external onlyOwner;
 ```
 
-Removes an address as a vault [vault handler contract](/contracts/ivaulthandler). Only owner can call it.
+Updates the reward duration. Only owner can call it.
 
-### mint
+### getReward
 
 ```sol
-mint(address _account, uint256 _amount) public onlyVault;
+function getReward() external nonReentrant updateReward(msg.sender);
 ```
 
-Mints TCAP Tokens. Only vault handler can call it.
+Transfers to the caller the current amount of rewards tokens earned. Update rewards on call.
 
-### burn
+### createDelegator
 
 ```sol
-function burn(address _account, uint256 _amount) public onlyVault;
+function createDelegator(address delegatee_) external;
 ```
 
-Burns TCAP Tokens. Only vault handler can call it.
+Creates a new delegator contract that delegates all votes to delegatee_. Only one delegator contract pointing to the
+same delegatee can exist.
 
-### setCap
+### stake
 
 ```sol
-function setCap(uint256 _cap) public onlyOwner;
+function stake(address delegator_, uint256 amount_)
+   external
+   nonReentrant
+   updateReward(msg.sender);
 ```
 
-Sets the maximum capacity of the token. When [capEnabled](#enableCap) is true, mint is not allowed to issue tokens that would increase the total supply above the specified capacity. Only owner can call it.
+Stakes to delegator_ the amount_ specified. Delegator must be valid and amount has to be greater than 0. amount_ is
+transferred to the delegator contract and staker starts earning rewards if active. Update rewards on call.
 
-### enableCap
+### withdraw
 
 ```sol
-function enableCap(bool _enable) public onlyOwner;
+function withdraw(address delegator_, uint256 amount_)
+   external
+   nonReentrant
+   updateReward(msg.sender);
 ```
 
-Enables or Disables the Token Cap. When capEnabled is true, minting will not be allowed above the max capacity. Only owner can call it
+Removes amount_ from delegator_. Delegator must be valid and amount has to be greater than 0. amount_ must be <= that
+current user stake. amount_ is transferred from the delegator contract to the staker. Update rewards on call. Requires
+that at least waitTime has passed since delegation to unDelegate.
+
+### updateWaitTime
+
+```sol
+ function updateWaitTime(uint256 waitTime_) external onlyOwner;
+```
+
+Updates the min wait time between delegation and unDelegation.

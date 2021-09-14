@@ -20,7 +20,7 @@ module.exports = {
                 Rewards: ["contracts/rewardhandler",
                     "contracts/liquidityreward",]
             },
-            {"Staking Contracts": ["contracts/delegator"]}
+            {"Staking Contracts": ["contracts/delegatorFactory","contracts/delegator"]}
         ],
 
     },
