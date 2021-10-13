@@ -18,7 +18,7 @@ Uses [Open Zeppelin Library](https://docs.openzeppelin.com/contracts/4.x/).
 
 | Contract | Address                                                                                                                            |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| DelegatorFactory  | [TBD](https://etherscan.io/address/TBD#code) |
+| DelegatorFactory  | [0x70236b36f86AB4bd557Fe9934E1246537B472918](https://etherscan.io/address/0x70236b36f86AB4bd557Fe9934E1246537B472918#code) |
 
 #### Rinkeby
 
