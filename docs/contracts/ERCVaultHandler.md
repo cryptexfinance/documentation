@@ -16,14 +16,19 @@ Extends [IVaultHandler](/contracts/ivaulthandler) allowing the use of an ERC20 a
 #### Mainnet
 
 | Contract          | Address                                                                                                                            |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+|-------------------| ---------------------------------------------------------------------------------------------------------------------------------- |
 | DAI VaultHandler  | [0x443366a7a5821619d8d57405511e4fadd9964771](https://etherscan.io/address/0x443366a7a5821619d8d57405511e4fadd9964771#code) |
+| LINK VaultHandler | [0xada39d170551daf42822E1D3dA64efEBbD14d1D3](https://etherscan.io/address/0xada39d170551daf42822E1D3dA64efEBbD14d1D3#code) |
+| AAVE VaultHandler | [0xada39d170551daf42822E1D3dA64efEBbD14d1D3](https://etherscan.io/address/0xada39d170551daf42822E1D3dA64efEBbD14d1D3#code) |
 
 #### Rinkeby
 
-| Contract         | Address                                                                                                                            |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| DAI VaultHandler | [0x8eD3A1A6221c9B6DA1Af4F21dD98646137bCa5ad](https://rinkeby.etherscan.io/address/0x8eD3A1A6221c9B6DA1Af4F21dD98646137bCa5ad#code) |
+| Contract          | Address                                                                                                                            |
+|-------------------| ---------------------------------------------------------------------------------------------------------------------------------- |
+| DAI VaultHandler  | [0x8eD3A1A6221c9B6DA1Af4F21dD98646137bCa5ad](https://rinkeby.etherscan.io/address/0x8eD3A1A6221c9B6DA1Af4F21dD98646137bCa5ad#code) |
+| LINK VaultHandler | [0xBd4a21cC2D12157765a8861A83FC4cfd216630b1](https://etherscan.io/address/0xBd4a21cC2D12157765a8861A83FC4cfd216630b1#code) |
+| AAVE VaultHandler | [0x119D37aFc784C81626b08813D83598b8673EEE66](https://etherscan.io/address/0x119D37aFc784C81626b08813D83598b8673EEE66#code) |
+
 
 ## State-Changing Functions
 
