@@ -5,7 +5,7 @@ id: optimism
 slug: /optimism
 ---
 
-Cryptex protocol is currently deployed on Optimism Mainnet and Optimism Kovan, it works exactly the same as the mainnet with minor changes on the Orchestrator. Optimism version is governed and upgraded by CTX token holders, using the three distinct components; the CTX token, governance module, and Timelock. In order to implement changes to the Cryptex protocol mainnet governance needs to vote and pass a proposal. Please refer to the (governance section)[/governance/reference] for more details on governance.
+Cryptex protocol is currently deployed on Optimism Mainnet and Optimism Kovan, it works exactly the same as the mainnet with minor changes on the Orchestrator. Optimism version is governed and upgraded by CTX token holders, using the three distinct components; the CTX token, governance module, and Timelock. In order to implement changes to the Cryptex protocol mainnet governance needs to vote and pass a proposal. Please refer to the [governance section](/governance/reference) for more details on governance.
 
 ### Differences with Mainnet
 
