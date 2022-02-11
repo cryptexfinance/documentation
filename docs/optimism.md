@@ -1,6 +1,6 @@
 ---
 title: Optimism
-sidebar_label: Optimism
+sidebar_label: Contracts
 id: optimism
 slug: /optimism
 ---
