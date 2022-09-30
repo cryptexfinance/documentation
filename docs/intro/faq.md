@@ -45,7 +45,7 @@ https://cryptex.finance/Cryptex_-_Final_Report.pdf.
 
 ### What is TCAP backed by?
 
-Each TCAP is collateralized by more than 150% corresponding amount of ETH or DAI.
+Each TCAP is collateralized by more than 125% corresponding amount of ETH, WETH, DAI, USDC, WBTC.
 
 ### How is TCAP pegged to the price of total crypto market cap?
 
