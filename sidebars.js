@@ -26,6 +26,7 @@ module.exports = {
             {"Staking Contracts": ["contracts/delegatorFactory","contracts/delegator"]}
         ],
         "Optimism": ["optimism"],
+        "Arbitrum": ["arbitrum"],
         "Audits": ["audits"],
     },
 };

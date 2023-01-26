@@ -1,0 +1,39 @@
+---
+title: Arbitrum
+sidebar_label: arbitrum
+id: arbitrum
+slug: /arbitrum
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+Cryptex has the ability to deploy index tokens on the Arbitrum network.
+The governance, however, remains on the Ethereum maninnet. 
+Cryptex has built a bridge to relay governance proposals from the Ethereum mainnet to the Arbitrum Network.
+
+### Bridge Architecture
+
+<img alt="TCAP Components" src={useBaseUrl("img/arbitrum_bridge.jpeg")} />
+
+#### Arbitrum Message Relayer
+
+This contract takes proposals from the timelock contract and 
+encodes data in a way that is accepted by Arbitrum's delayed inbox contract.
+Arbitrum's delayed inbox then relays the calldata to teh arbitrum network. 
+
+#### Arbitrum Message Executor
+This contract executes calldata received from Arbitrum Message Relayer and executes them.
+
+## Contract Addresses
+
+
+| Contract          | Address                                                                                                                               |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| Arbitrum Orchestrator  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| Abitrum Treasury  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| ETH VaultHandler  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| ETH Oracle  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| DAI VaultHandler  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| DAI Oracle  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| TCAP  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
+| TCAP Oracle  | [TODO](https://optimistic.etherscan.io/address/TODO#code) |
