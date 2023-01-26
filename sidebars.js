@@ -2,7 +2,10 @@ module.exports = {
     tcapSidebar: {
         Introduction: [
             "intro/cryptex",
+            "intro/detailed_introduction",
+            "intro/architecture",
             "intro/tcap",
+            "intro/jpegz",
             "intro/faq",
             "intro/terminology",
             "intro/whitepaper",

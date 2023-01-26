@@ -36,3 +36,9 @@ Destroy tokens.
 ### Vault
 
 Contract in charge of storing collateral to mint TCAP tokens.
+
+
+### Vault Ratio
+
+The ratio of the value of collateral to the value of the debt in USD is called the vault ratio.
+It is used to determine the health factor of a vault. 

@@ -1,0 +1,66 @@
+---
+id: jpegz
+title: What is JPEGZ?
+sidebar_label: What is JPEGZ?
+slug: /jpegz
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossOrigin="anonymous"
+/>
+
+JPEGZ is an ERC20 token that tokenizes the prices of the top 10 most liquid NFT collections. 
+In simple words, JPEGZ is an index of ten NFT collections. 
+The price feed is aggregated by Coinbase cloud and is verified by a series of Chainlink validators and written on-chain.
+The JPEGZ index token is currently deployed on the Arbitrum network. 
+
+Below is the list of collections and their respective weights in the index:
+
+| Colection   |      Index Weights      |
+|----------|:-------------:|
+| BAYC |  36.5 % |
+| Crypto Punks |   30.65 %    |
+| MAYC | 15.11 % |
+| Azuki | 5.57 % |
+| CloneX | 5.09 % |
+| Doodles | 3.12 % |
+| Vee Friends | 2.15 % |
+| Cool Cats | 1.30 % |
+| World Of Women | 0.85 % |
+| Cryptoadz | 0.50 % | 
+
+#### Index Calculation
+
+The Index price is calculated in the following way:
+
+Let:<br />
+$N$ = Number of collections included in the index <br />
+$S_c$ = The total supply of collection c included in the index <br />
+$F_c$ = The ETH floor price of collection c included in the index <br />
+$U$ = The USD value of Ethereum <br />
+
+$$
+NFTIndex = (\displaystyle\sum_{c=1}^N S_c F_c) * U
+$$ 
+
+The final output of this calculation is verified and written on chain by chainlink.
+
+#### Supported Collaterals
+
+JPEGZ can be minted by depositing ETH or DAI as collateral in the vaults.
+
+#### Minimum Vault Ratio
+
+ETH vaults have a minimum vault ratio requirement of 150 %, and the DAI vault has a minimum vault requirement of 170%. Any vaults that fail to maintain the minimum vault ratio will be liquidated.
+
+#### Liquidation Penalty
+
+All JPEGZ vaults have a liquidation penalty of 20%.  
+
+#### Fees
+JPEGZ has a mint fee of 1.5 % and a burn fee of 1.5 %. The fee is charged as a percentage of the amount minted/burned in ETH. The DAO owns the revenue generated through these fees.  
