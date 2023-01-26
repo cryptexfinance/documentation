@@ -4,6 +4,7 @@ module.exports = {
             "intro/cryptex",
             "intro/detailed_introduction",
             "intro/architecture",
+            "intro/protocol_math",
             "intro/tcap",
             "intro/jpegz",
             "intro/faq",
