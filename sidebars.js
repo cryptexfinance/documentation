@@ -8,7 +8,6 @@ module.exports = {
             "intro/jpegz",
             "intro/faq",
             "intro/terminology",
-            "intro/whitepaper",
         ],
         Governance: ["governance/reference"],
         "How To Use": ["how"],
