@@ -5,11 +5,8 @@ sidebar_label: Understanding Cryptex
 slug: /
 ---
 
-Cryptex is focused on building innovative, open source financial products for the global Crypto community.
-Using Ethereum’s smart contract system, Cryptex is able to build decentralized financial synthetic instruments such as [Total Market Cap Token](/tcap), [JPEGZ](/jpegz) and many others. 
-With real world data on the [Ethereum](https://ethereum.org/) blockchain along with collateralized backings for generating tokens, these products were previously not possible without a centralized custodian or manager. 
-Now, Cryptex is providing the framework for decentralized financial products that offer exposure to more than just BTC, ETH, and other DeFi tokens.
- 
-In the world of decentralized financial products, accessing global data on the blockchain is one of the more difficult problems. 
-Chainlink enables Cryptex to aggregate multiple data points from external sources within the smart contract framework on Ethereum. 
-Using a trust minimized oracle framework allows TCAP to minimize trust of Cryptex and ultimately serve as a better trustless financial product.
+Cryptex Finance is a multi-network DeFi protocol that provides Crypto and NFT users easy access to fully-decentralized index tokens. The protocol uses Ethereum smart contracts, over-collateralized vaults, and Chainlink data oracles to create indexes for users around the world in a trustless way.
+
+
+
+Cryptex Finance is a Decentralized Autonomous Organization (DAO), governed by holders of CTX tokens. CTX was created through a fair launch to promote transparent, community-based governance. CTX holders can vote on proposals, upgrades, and treasury management.
