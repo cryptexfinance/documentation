@@ -2,10 +2,13 @@ module.exports = {
     tcapSidebar: {
         Introduction: [
             "intro/cryptex",
+            "intro/detailed_introduction",
+            "intro/architecture",
+            "intro/protocol_math",
             "intro/tcap",
+            "intro/jpegz",
             "intro/faq",
             "intro/terminology",
-            "intro/whitepaper",
         ],
         Governance: ["governance/reference"],
         "How To Use": ["how"],
@@ -23,6 +26,7 @@ module.exports = {
             {"Staking Contracts": ["contracts/delegatorFactory","contracts/delegator"]}
         ],
         "Optimism": ["optimism"],
+        "Arbitrum": ["arbitrum"],
         "Audits": ["audits"],
     },
 };

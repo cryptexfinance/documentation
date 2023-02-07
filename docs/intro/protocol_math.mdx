@@ -1,0 +1,67 @@
+---
+id: protocol_math
+title: Protocol Math
+sidebar_label: Protocol Math
+slug: /protocol_math
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+    integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+    crossOrigin="anonymous"
+/>
+
+### Vault Ratio
+The vault ratio is defined in the following way:
+$$
+\begin{gathered}
+Let\\
+C_a\, be\, the\, amount\, of\, collateral\, deposited \\
+C_p\, be\, the\, price\, of\, the\, collateral\, \\
+D_a\, be\, the\, amount\, of\, debt\, Minted\,\\
+D_p\, be\, the\, price\, of\, the\, debt\, \\
+V_r\, be \, the\, vault\, ratio\\
+V_r =  \frac{C_a * C_p}{D_a * D_b} \times 100
+\end{gathered}
+$$ 
+
+### Liquidation
+
+The Index token needed to liquidate a vault is:
+
+$$
+\begin{gathered}
+Let\\
+D_L \, be\, the\, amount\, of\, index\, token\, needed\, to\, liquidate\, a\, vault \\
+L_p\, be\, the\, liquidation\, penalty\, \\
+\\
+D_L =  \frac{D_a\,D_p\,V_r - 100\,C_a\,C_p}{D_p (V_r - L_p - 100)}
+\end{gathered}
+$$
+
+The reward received is given by:
+$$
+\begin{gathered}
+Let\\
+C_r \, be\, the\, amount\, of\, collateral\, received\, as\, reward\,\\
+\\
+C_r =  \frac{(D_a\,D_p\,V_r - 100\,C_a\,C_p)(L_p + 100)}{100\,C_p\,D_p (V_r - L_p - 100)}
+\end{gathered}
+$$
+
+### Fees
+
+The mint fee and the fee are calculated in the following way:
+$$
+Let\, B_f\, be\, the\, burn\, fee\, percentage\\
+Let\, M_f\, be\, the\, mint\, fee\, percentage\\
+mintFee = \frac{C_a\,C_p\,M_f}{100\,E_p}\\
+BurnFee = \frac{C_a\,C_p\,B_f}{100\,E_p}\\
+$$
+
+### Math Derivation
+
+For the derivation of the formulae please refer to this medium [article](https://medium.com/@voithjm1/tokenomics-of-tcap-ce9da45e1be9)

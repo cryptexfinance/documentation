@@ -23,7 +23,7 @@ module.exports = {
             title: "Documentation",
             logo: {
                 alt: "Tcap Icon",
-                src: "img/tcap-logo.svg",
+                src: "img/logo.svg",
             },
             items: [
                 {
