@@ -13,6 +13,7 @@ module.exports = {
         Governance: ["governance/reference"],
         "How To Use": ["how"],
         Contracts: [
+            "contracts/addresses",
             {
                 Vaults: ["contracts/ivaulthandler",
                     "contracts/ethvaulthandler",
