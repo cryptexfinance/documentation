@@ -27,12 +27,12 @@ Vaults can be thought of as safes that store a users collateral.
 ### Debt
 
 The protocol upon collateralization allows the minting of new index tokens that are ERC20 compliant.
-The protocol can be thought of as a collateral loan whereby the borrower borrows TCAP against the deposited collateral. 
+The protocol can be thought of as a collateral loan whereby the borrower borrows index tokens against the deposited collateral. 
 The system, therefore, treats the amount of the borrowed token as debt.
 
 ### Vault Ratio
 Since most ERC-20 tokens are highly volatile, the system over-collateralizes the issued debt.
-The ratio between the value of the collateral deposited and the value of TCAP borrowed is called the vault ratio. 
+The ratio between the value of the collateral deposited and the value of index tokens borrowed is called the vault ratio. 
 It is also known as the collateralization ratio.
 
 ### Minting
@@ -42,12 +42,14 @@ The protocol ensures a minimum vault ratio while minting new tokens.
 
 ### Burning
 
-A user can reduce their debt by destroying some of the minted TCAP. This process of reducing the supply of TCAP tokens is called burning.
+A user can reduce their debt by destroying some of the minted index tokens. 
+This process of reducing the supply of the index tokens is called burning.
 
 
 ### Liquidation
 
-If the vault ratio falls below the minimum value,  then the vault can be liquidated for its underlying collateral. The protocol also charges a penalty as an incentive for the liquidator to safeguard the protocol against bad debt. 
+If the vault ratio falls below the minimum value, then the vault can be liquidated for its underlying collateral. 
+The protocol also charges a penalty as an incentive for the liquidator to safeguard the protocol against bad debt. 
 
 
 ### Fees
