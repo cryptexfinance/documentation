@@ -26,7 +26,8 @@ module.exports = {
             },
             {"Staking Contracts": ["contracts/delegatorFactory","contracts/delegator"]}
         ],
-        "Optimism": ["optimism"],
+//        Note: commented this section as we dropped support for optimism.
+//        "Optimism": ["optimism"],
         "Arbitrum": ["arbitrum"],
         "Audits": ["audits"],
     },
