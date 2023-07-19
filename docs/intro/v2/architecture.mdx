@@ -1,0 +1,44 @@
+---
+id: architecture
+title: Architecture
+sidebar_label: Architecture
+slug: /architecture
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+
+<img alt="TCAP Components" src={useBaseUrl("img/architecture_v2.jpeg")} />
+
+
+### Users
+There are primarily three types of users that use the Cryptex product. 
+- Takers: They deposit collateral in exchange for exposure to the Oracle price feeds.
+- Passive liquidity providers: They deposit liquidity in vaults which is then managed by the vault.
+- Active liquidity providers: They provided liquidity on a selected side of the market i.e long or short.
+
+### Vaults
+
+Vaults are smart contracts that allow users to provide liquidity in a passive way. 
+The vault has logic to actively manage the maker positions opened by it. 
+Vaults hedge maker positions by providing liquidity both sides of market.
+The fees, profits and losses are divided amongst the users in proportion to their shares.
+
+
+### Price Oracle
+The long and short product create positions based on a underlying price feed that comes from Oracles.
+The product currently uses chainlink oracles. 
+
+
+### Treasury
+The fees generated through trading activity is stored in the treasury. The treasury is owned and 
+controlled by the cryptex DAO.
+
+
+### Perennial's Collateral Contract
+The collateral contract stores and keeps track record of the collateral deposited by the user.  
+
+
+### Perennial's Products
+The product contracts are core contracts that have logic for the perpetual futures. 
+The long and short are deployed as separate instances of the product contract.  
