@@ -2,7 +2,7 @@
 id: cryptex
 title: Understanding Cryptex
 sidebar_label: Understanding Cryptex
-slug: /
+slug: /cryptex
 ---
 
 Cryptex Finance is a multi-network DeFi protocol that provides Crypto and 
