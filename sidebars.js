@@ -1,33 +1,14 @@
 module.exports = {
     tcapSidebar: {
         Introduction: [
-            "intro/cryptex",
-            "intro/detailed_introduction",
-            "intro/architecture",
-            "intro/protocol_math",
-            "intro/tcap",
-            "intro/jpegz",
-            "intro/faq",
-            "intro/terminology",
+            "intro/v2/introduction",
+            "intro/v2/overview",
+            "intro/v2/architecture",
         ],
         Governance: ["governance/reference"],
-        "How To Use": ["how"],
         Contracts: [
-            "contracts/addresses",
-            {
-                Vaults: ["contracts/ivaulthandler",
-                    "contracts/ethvaulthandler",
-                    "contracts/erc20vaulthandler", "contracts/tcap", "contracts/orchestrator",
-                    "contracts/chainlink"]
-            },
-            {
-                Rewards: ["contracts/rewardhandler",
-                    "contracts/liquidityreward",]
-            },
-            {"Staking Contracts": ["contracts/delegatorFactory","contracts/delegator"]}
+            "contracts/v2/deployed_contracts",
         ],
-//        Note: commented this section as we dropped support for optimism.
-//        "Optimism": ["optimism"],
         "Arbitrum": ["arbitrum"],
         "Audits": ["audits"],
     },

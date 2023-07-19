@@ -1,0 +1,37 @@
+---
+id: deployed_contracts
+title: Deployed Contracts
+sidebar_label: Deployed Contracts
+slug: /deployed-contracts
+---
+
+### Arbitrum
+
+| Contract            | Address                                                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------|
+| TCAP Long           | [0x1cD33f4e6EdeeE8263aa07924c2760CF2EC8aAD0](https://arbiscan.io/address/0x1cD33f4e6EdeeE8263aa07924c2760CF2EC8aAD0#code)  |
+| TCAP Short          | [0x4243b34374cfB0a12f184b92F52035d03d4f7056](https://arbiscan.io/address/0x4243b34374cfB0a12f184b92F52035d03d4f7056#code)  |
+| TCAP Balanced Vault | [0x78C8b241005268895F8aB78c0fe8f72867CD63c2](https://arbiscan.io/address/0x78C8b241005268895F8aB78c0fe8f72867CD63c2#code)  |
+| TCAP Oracle         | [0xaAB5bF2353cc58dE50c54BB0d02d8e0A0333f322](https://arbiscan.io/address/0xaAB5bF2353cc58dE50c54BB0d02d8e0A0333f322#code)  |
+| Liquidity Reward    | [0x938F145D5f3ABf681618Dcc5c71f095B870747Ba](https://arbiscan.io/address/0x938F145D5f3ABf681618Dcc5c71f095B870747Ba#code)  |
+| Message Executor    | [0x3769b6aA269995297a539BEd7a463105466733A5](https://arbiscan.io/address/0x3769b6aA269995297a539BEd7a463105466733A5#code)  |
+
+#### External Contracts
+
+| Contract            | Address                                                                                                                    |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Controller          | [0xA59eF0208418559770a48D7ae4f260A28763167B](https://arbiscan.io/address/0xA59eF0208418559770a48D7ae4f260A28763167B#code)  |
+| Collateral          | [0xAF8CeD28FcE00ABD30463D55dA81156AA5aEEEc2](https://arbiscan.io/address/0xAF8CeD28FcE00ABD30463D55dA81156AA5aEEEc2#code)  |
+| MultiInvoker        | [0xe72E82b672d7D3e206327C0762E9805fbFCBCa92](https://arbiscan.io/address/0xe72E82b672d7D3e206327C0762E9805fbFCBCa92#code)  |
+| DSU                 | [0x52C64b8998eB7C80b6F526E99E29ABdcC86B841b](https://arbiscan.io/address/0x52C64b8998eB7C80b6F526E99E29ABdcC86B841b#code)  |
+| USDC                | [0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8](https://arbiscan.io/address/0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8#code)  |
+
+
+### Mainnet
+
+| Contract             | Address                                                                                                                    |
+|----------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Governance Beta      | [0x874C5D592AfC6803c3DD60d6442357879F196d5b](https://arbiscan.io/address/0x874C5D592AfC6803c3DD60d6442357879F196d5b#code)  |
+| Timelock             | [0xa54074b2cc0e96a43048d4a68472F7F046aC0DA8](https://arbiscan.io/address/0xa54074b2cc0e96a43048d4a68472F7F046aC0DA8#code)  |
+| CTX                  | [0x321C2fE4446C7c963dc41Dd58879AF648838f98D](https://arbiscan.io/address/0x78C8b241005268895F8aB78c0fe8f72867CD63c2#code)  |
+| L1 Message Relayer   | [0x209c23DB16298504354112fa4210d368e1d564dA](https://arbiscan.io/address/0x209c23DB16298504354112fa4210d368e1d564dA#code)  |
