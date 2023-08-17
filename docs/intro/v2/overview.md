@@ -9,8 +9,8 @@ slug: /overview
 
 Cryptex Finance V2 is a DeFi protocol that makes crypto native markets tradable. The product
 is built on top [perennial](https://docs.perennial.finance/) using chainlink oracles.
-Cryptex plans to build various trading strategies around perennial's perpetual futures.  
-Since the protocol is built on top of perennial, the market is two-sided with exposure to the underlying price oracle.
+Cryptex plans to build various trading strategies around perennial's perpetual futures.
+Since the protocol is built on top of perennial, the market is two-sided with exposure to the underlying price oracle. Currently Cryptex V2 is only available on the Arbitrum Network.
 
 ### How does it work?
 
@@ -18,4 +18,4 @@ The product is built on top of perennial which is a peer-to-pool derivatives AMM
 
 The traders(takers) deposit collateral to get leveraged exposure to price feeds (long, short). Liquidity providers(makers) pool capital in the protocol to earn fees for taking the other side of Taker trades.  Trades are continuously settled where the losing side of the trade pays the winning side.
 
-Liquidity providers also get the option to pool funds through vaults. Vaults have strategies baked in for hedging maker positions. 
+Liquidity providers also get the option to pool funds through vaults. Vaults have strategies baked in for hedging maker positions.

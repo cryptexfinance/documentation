@@ -1,14 +1,16 @@
 ---
-title: Arbitrum
-sidebar_label: arbitrum
-id: arbitrum
-slug: /arbitrum
+title: L2 Governance
+sidebar_label: L2 Governance
+id: l2_governance
+slug: /l2-governance
 ---
 
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-Cryptex has the ability to deploy index tokens on the Arbitrum network.
-The governance, however, remains on the Ethereum maninnet. 
+Cryptex has the ability to deploy products and markets on multiple L2s.
+The governance, however, remains on the Ethereum maninnet.
+
+## Arbitrum
 Cryptex has built a bridge to relay governance proposals from the Ethereum mainnet to the Arbitrum Network.
 
 ### Bridge Architecture
@@ -17,9 +19,9 @@ Cryptex has built a bridge to relay governance proposals from the Ethereum mainn
 
 #### Arbitrum Message Relayer
 
-This contract takes proposals from the timelock contract and 
+This contract takes proposals from the timelock contract and
 encodes data in a way that is accepted by Arbitrum's delayed inbox contract.
-Arbitrum's delayed inbox then relays the calldata to the arbitrum network. 
+Arbitrum's delayed inbox then relays the calldata to the arbitrum network.
 
 #### Arbitrum Message Executor
 This contract executes calldata received from Arbitrum Message Relayer and executes them.
