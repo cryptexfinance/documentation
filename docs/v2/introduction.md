@@ -2,7 +2,7 @@
 id: introduction
 title: Introduction to Cryptex Finance V2
 sidebar_label: Introduction to Cryptex V2
-slug: /
+slug: intro
 ---
 
 Cryptex Finance V2 is a DeFi protocol that makes crypto native markets tradable.

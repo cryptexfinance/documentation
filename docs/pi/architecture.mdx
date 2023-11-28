@@ -1,0 +1,46 @@
+---
+id: architecture
+title: Architecture for version π
+sidebar_label: Architecture for version π
+slug: architecture
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+
+<img alt="TCAP Components" src={useBaseUrl("img/architecture_π.png")} />
+
+
+### Users
+There are primarily five types of users of Cryptex Finance π. 
+- Takers: They deposit collateral in exchange for exposure to the Oracle price feeds.
+- Passive liquidity providers: They deposit liquidity in vaults which is then managed by the vault.
+- Active liquidity providers: They provided liquidity to selected markets and manage their maker positions by themselves.
+- Keepers: These users ensure that price updates are regularly written on-chain in exchange for a fee. They also execute orders like limit orders, stop loss orders whenever the market conditions are met.
+- CTX users: The CTX users can vote on proposals and they can control the treasury through proposals.
+
+### Vaults
+
+Vaults are smart contracts that allow users to provide liquidity in a passive way. 
+The vault has logic to actively manage the maker positions opened by it.
+The vaults deploy liquidity to multiple markets based on a predefined strategy. 
+Vaults hedge maker positions by providing liquidity both sides of market.
+The fees, profits and losses are divided amongst the users in proportion to their shares.
+
+
+### Price Oracle
+The protocol uses on-demand oracles as price feeds for the markets. The price feeds need to be constantly updated
+by a keeper in exchange for a fee.  
+
+
+### Treasury
+The fees generated through trading activity is stored in the treasury. The treasury is owned and 
+controlled by the cryptex DAO.  
+
+
+### Perennial's market
+The market contracts are core contracts that have logic for the perpetual futures. 
+The long, short and maker positions are handled by this contract. It also has the logic for settlements and liquidations.
+
+### Multi Invoker
+The multi-invoker is a smart contract that acts as a gateway for perennials smart contracts. It allows users/interfaces to make multiple actions on perennial through a single transaction.

@@ -2,7 +2,7 @@
 id: overview
 title: Overview
 sidebar_label: Overview
-slug: /overview
+slug: overview
 ---
 
 ### What is Cryptex Finance v2?
