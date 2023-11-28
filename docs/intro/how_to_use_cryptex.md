@@ -8,7 +8,7 @@ slug: /how-to-use-cryptex
 ### Things you can do on Cryptex Finance
 
 - Long/Short a growing number of synthetic assets. 
-- Trade upto 100x leverage
+- Trade up to 100x leverage
 - provide liquidity passively for making markets in exchange for rewards.
 
 

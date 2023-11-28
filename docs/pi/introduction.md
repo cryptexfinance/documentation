@@ -7,7 +7,7 @@ slug: intro
 
 Cryptex Finance version π is an improvement over the previous [version v2](v2/intro). 
 Cryptex Finance π is built on top of perennial v2 and, it comes with several features.
-Version π uses low latency on-demand oracles, more capital efficient and provides upto 100x leverage.
+Version π uses low latency on-demand oracles, more capital efficient and provides up to 100x leverage.
 
 ### Comparison with V2
 
