@@ -16,5 +16,5 @@ CTX holders can vote on proposals, upgrades, and treasury management.
 ### Versions
 
 Cryptex Finance currently has two active versions.
- - [Version π](pi/intro) (latest) 
- - [Versoin 2](v2/intro)
+ - [Version π](pi/intro) (latest)
+ - [Version 2](v2/intro)
