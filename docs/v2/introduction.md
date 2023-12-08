@@ -6,7 +6,7 @@ slug: intro
 ---
 
 Cryptex Finance V2 is a DeFi protocol that makes crypto native markets tradable.
-The protocol uses Ethereum smart contracts, Perennial derivatives vaults, and Chainlink data oracles to provide secure and decentralized trading for users on the Arbitrum Network.
+The protocol uses Ethereum smart contracts, Perennial derivatives vaults, and Chainlink/Pyth data oracles to provide secure and decentralized trading for users on the Arbitrum Network.
 
 Cryptex Finance is a Decentralized Autonomous Organization (DAO),
 governed by holders of CTX tokens.

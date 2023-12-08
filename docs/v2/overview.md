@@ -8,9 +8,9 @@ slug: overview
 ### What is Cryptex Finance v2?
 
 Cryptex Finance V2 is a DeFi protocol that makes crypto native markets tradable. The product
-is built on top [perennial](https://docs.perennial.finance/) using chainlink oracles.
+is built on top [perennial](https://docs.perennial.finance/) using chainlink and pyth oracles.
 Cryptex plans to build various trading strategies around perennial's perpetual futures.
-Since the protocol is built on top of perennial, the market is two-sided with exposure to the underlying price oracle. Currently Cryptex V2 is only available on the Arbitrum Network.
+Since the protocol is built on top of perennial, the market is two-sided with exposure to the underlying price oracle. Currently, Cryptex V2 is only available on the Arbitrum Network.
 
 ### How does it work?
 
