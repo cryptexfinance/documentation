@@ -46,5 +46,12 @@ slug: /deployed-contracts
 |----------------------|----------------------------------------------------------------------------------------------------------------------------|
 | Governance Beta      | [0x874C5D592AfC6803c3DD60d6442357879F196d5b](https://etherscan.io/address/0x874C5D592AfC6803c3DD60d6442357879F196d5b#code)  |
 | Timelock             | [0xa54074b2cc0e96a43048d4a68472F7F046aC0DA8](https://etherscan.io/address/0xa54074b2cc0e96a43048d4a68472F7F046aC0DA8#code)  |
-| CTX                  | [0x321C2fE4446C7c963dc41Dd58879AF648838f98D](https://etherscan.io/address/0x78C8b241005268895F8aB78c0fe8f72867CD63c2#code)  |
+| CTX                  | [0x321C2fE4446C7c963dc41Dd58879AF648838f98D](https://etherscan.io/address/0x321C2fE4446C7c963dc41Dd58879AF648838f98D#code)  |
 | L1 Message Relayer   | [0x209c23DB16298504354112fa4210d368e1d564dA](https://etherscan.io/address/0x209c23DB16298504354112fa4210d368e1d564dA#code)  |
+
+
+### Contracts on Base
+
+| Contract | Address                                                                                                                    |
+|----------|----------------------------------------------------------------------------------------------------------------------------|
+| CTX      | [0xBB22Ff867F8Ca3D5F2251B4084F6Ec86D4666E14](https://basescan.org/address/0xBB22Ff867F8Ca3D5F2251B4084F6Ec86D4666E14)  |
