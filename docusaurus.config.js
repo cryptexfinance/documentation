@@ -1,5 +1,6 @@
 const remarkMath = require("remark-math");
 const rehypeKatex = require("rehype-katex");
+const prismReactRenderer = require('prism-react-renderer');
 
 module.exports = {
     title: "Cryptex",
@@ -13,7 +14,7 @@ module.exports = {
     themeConfig: {
         prism: {
             additionalLanguages: ["solidity"],
-            theme: require("prism-react-renderer/themes/synthwave84"),
+            theme: prismReactRenderer.themes.github,
         },
         // algolia: {
         //     apiKey: "882821d106ded887254b7b5ec5690c5b", //Change to one of tcap
@@ -72,7 +73,6 @@ module.exports = {
                     customCss: require.resolve("./src/css/custom.css"),
                 },
                 sitemap: {
-                    cacheTime: 600 * 1000, // 600 sec - cache purge period
                     changefreq: "weekly",
                     priority: 0.5,
                 },

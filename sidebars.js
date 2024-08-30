@@ -1,23 +1,156 @@
 module.exports = {
-    tcapSidebar: {
-        "Cryptex Protocol": [
-            "intro/welcome_to_cryptex",
-            "intro/how_to_use_cryptex",
-        ],
-        "Version π": [
-            "pi/introduction",
-            "pi/architecture",
-            "pi/fees",
-        ],
-        "Version 2": [
-            "v2/introduction",
-            "v2/overview",
-            "v2/architecture",
-        ],
-        Governance: ["governance/reference","governance/l2_governance"],
-        Contracts: [
-            "contracts/v2/deployed_contracts",
-        ],
-        "Audits": ["audits"],
-    },
+    tcapSidebar: [
+        {
+          type: 'category',
+          label: 'Cryptex Finance',
+          collapsible: true,
+          collapsed: false,
+          items: [
+            {
+              type: 'doc',
+              id: 'intro/welcome_to_cryptex',
+              label: 'Welcome to Cryptex',
+            },
+            {
+              type: 'doc',
+              id: 'intro/how_to_use_cryptex',
+              label: 'How to use Cryptex Finance',
+            },
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Spot Trading',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'spot/intro',
+              label: 'Introduction',
+            }
+          ]
+       },
+        {
+          type: 'category',
+          label: 'Perpetual Futures',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'category',
+              label: 'Version Pi',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/pi/introduction',
+                  label: ' Introduction',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/pi/architecture',
+                  label: 'Architecture',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/pi/fees',
+                  label: 'Fees',
+                },
+                 {
+                  type: 'doc',
+                  id: 'perpetual_futures/pi/meem',
+                  label: 'Meem Perp',
+                },
+              ]
+            },
+            {
+              type: 'category',
+              label: 'Version V2',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v2/introduction',
+                  label: ' Introduction',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v2/overview',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v2/architecture',
+                  label: 'Architecture',
+                },
+              ]
+            },
+          ]
+       },
+       {
+          type: 'category',
+          label: 'Crypdex',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'crypdex/intro',
+              label: 'Introduction',
+            },
+            {
+              type: 'doc',
+              id: 'crypdex/architecture',
+              label: 'Architecture',
+            },
+          ]
+       },
+       {
+          type: 'category',
+          label: 'Governace',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'governance/reference',
+              label: 'Reference',
+            },
+            {
+              type: 'doc',
+              id: 'governance/l2_governance',
+              label: 'L2 Governance',
+            },
+          ]
+       },
+       {
+          type: 'category',
+          label: 'Contracts',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'contracts/v2/deployed_contracts',
+              label: 'Deployed Contracts',
+            }
+          ]
+       },
+       {
+          type: 'category',
+          label: 'Audits',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'audits/audits',
+              label: 'Audits',
+            }
+          ]
+       },
+    ]
 };

@@ -16,6 +16,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 
 ### Vault Ratio
 The vault ratio is defined in the following way:
+```
 $$
 \begin{gathered}
 Let\\
@@ -27,11 +28,13 @@ V_r\, be \, the\, vault\, ratio\\
 V_r =  \frac{C_a * C_p}{D_a * D_b} \times 100
 \end{gathered}
 $$ 
+```
 
 ### Liquidation
 
 The Index token needed to liquidate a vault is:
 
+```
 $$
 \begin{gathered}
 Let\\
@@ -41,8 +44,10 @@ L_p\, be\, the\, liquidation\, penalty\, \\
 D_L =  \frac{D_a\,D_p\,V_r - 100\,C_a\,C_p}{D_p (V_r - L_p - 100)}
 \end{gathered}
 $$
+```
 
 The reward received is given by:
+```
 $$
 \begin{gathered}
 Let\\
@@ -51,16 +56,19 @@ C_r \, be\, the\, amount\, of\, collateral\, received\, as\, reward\,\\
 C_r =  \frac{(D_a\,D_p\,V_r - 100\,C_a\,C_p)(L_p + 100)}{100\,C_p\,D_p (V_r - L_p - 100)}
 \end{gathered}
 $$
+```
 
 ### Fees
 
 The mint fee and the fee are calculated in the following way:
+```
 $$
 Let\, B_f\, be\, the\, burn\, fee\, percentage\\
 Let\, M_f\, be\, the\, mint\, fee\, percentage\\
 mintFee = \frac{C_a\,C_p\,M_f}{100\,E_p}\\
 BurnFee = \frac{C_a\,C_p\,B_f}{100\,E_p}\\
 $$
+```
 
 ### Math Derivation
 
