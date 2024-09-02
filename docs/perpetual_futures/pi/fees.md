@@ -1,7 +1,7 @@
 ---
 id: fees
-title: Fees for version π
-sidebar_label: Fees for version π
+title: Fees
+sidebar_label: Fees
 slug: fees
 ---
 

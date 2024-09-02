@@ -39,6 +39,39 @@ module.exports = {
           items: [
             {
               type: 'category',
+              label: 'Version V1',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v1/introduction',
+                  label: ' Introduction',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v1/overview',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v1/architecture',
+                  label: 'Architecture',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v1/fees',
+                  label: 'Fees',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/v1/tcap',
+                  label: 'TCAP Perp',
+                },
+              ]
+            },
+            {
+              type: 'category',
               label: 'Version Pi',
               collapsible: true,
               collapsed: true,
@@ -47,6 +80,11 @@ module.exports = {
                   type: 'doc',
                   id: 'perpetual_futures/pi/introduction',
                   label: ' Introduction',
+                },
+                {
+                  type: 'doc',
+                  id: 'perpetual_futures/pi/overview',
+                  label: 'Overview',
                 },
                 {
                   type: 'doc',
@@ -62,29 +100,6 @@ module.exports = {
                   type: 'doc',
                   id: 'perpetual_futures/pi/meem',
                   label: 'Meem Perp',
-                },
-              ]
-            },
-            {
-              type: 'category',
-              label: 'Version V2',
-              collapsible: true,
-              collapsed: true,
-              items: [
-                {
-                  type: 'doc',
-                  id: 'perpetual_futures/v2/introduction',
-                  label: ' Introduction',
-                },
-                {
-                  type: 'doc',
-                  id: 'perpetual_futures/v2/overview',
-                  label: 'Overview',
-                },
-                {
-                  type: 'doc',
-                  id: 'perpetual_futures/v2/architecture',
-                  label: 'Architecture',
                 },
               ]
             },
@@ -106,6 +121,19 @@ module.exports = {
               id: 'crypdex/architecture',
               label: 'Architecture',
             },
+          ]
+       },
+       {
+          type: 'category',
+          label: 'Smart Vaults',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'smart_vaults/overview',
+              label: 'Overview',
+            }
           ]
        },
        {

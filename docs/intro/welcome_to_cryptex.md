@@ -14,9 +14,9 @@ Cryptex is a unified platform that combines multiple DeFi functionalities:
 
 ***Perpetual Futures**: Access leveraged trading on popular crypto assets.
 
-**Indexes**: Issue and redeem curated crypto indexes for diversified market exposure.
+**Crypdex**: Issue and redeem curated crypto indexes for diversified market exposure.
 
-**Smart Vaults**: Use automated yield generation strategies.
+**Smart Vaults**: Use automated hedging strategies.
 
 Our mission is to simplify your DeFi journey while providing cutting edge tools and strategies previously unavailable to users.
 
