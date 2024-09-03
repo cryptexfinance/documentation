@@ -1,8 +1,8 @@
 ---
-id: intro
+id: overview
 title: Overview of Crypdex
-sidebar_label: Introduction
-slug: intro
+sidebar_label: Overview
+slug: overview
 ---
 
 **Note: Crypdex is not yet live.**

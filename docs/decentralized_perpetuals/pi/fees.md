@@ -5,7 +5,7 @@ sidebar_label: Fees
 slug: fees
 ---
 
-Cryptex finance is built upon the Perennial Finance. An exchange fee is charged by perennial which varies based on how much impact the trade has on the market.
+Decentralized Perpetuals π is built upon the Perennial Finance. An exchange fee is charged by perennial which varies based on how much impact the trade has on the market.
 On top of this cryptex charges a small interface fee for helping users interact with the smart contracts. 
 
 ### Perennial Fees

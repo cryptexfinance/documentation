@@ -14,13 +14,13 @@ Getting started with Cryptex is straightforward. Here's a guide to help you navi
 
 #### 2. Explore Our Services
 
-**Spot Trading**
+**Spot**
 - Navigate to the "Spot" tab.
 - Select the trading pair you wish to trade.
 - Enter the amount you want to swap and/or bridge.
 - Review and confirm your trade.
 
-**Perpetual Futures**
+**Decentralized Perpetuals**
 
 Trading Perpetual Markets
 - Go to the "Perpetuals" tab.

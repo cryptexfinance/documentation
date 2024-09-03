@@ -20,7 +20,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'Spot Trading',
+          label: 'Spot',
           collapsible: true,
           collapsed: true,
           items: [
@@ -33,7 +33,7 @@ module.exports = {
        },
         {
           type: 'category',
-          label: 'Perpetual Futures',
+          label: 'Decentralized Perpetuals',
           collapsible: true,
           collapsed: true,
           items: [
@@ -45,27 +45,27 @@ module.exports = {
               items: [
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/v1/introduction',
+                  id: 'decentralized_perpetuals/v1/introduction',
                   label: ' Introduction',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/v1/overview',
+                  id: 'decentralized_perpetuals/v1/overview',
                   label: 'Overview',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/v1/architecture',
+                  id: 'decentralized_perpetuals/v1/architecture',
                   label: 'Architecture',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/v1/fees',
+                  id: 'decentralized_perpetuals/v1/fees',
                   label: 'Fees',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/v1/tcap',
+                  id: 'decentralized_perpetuals/v1/tcap',
                   label: 'TCAP Perp',
                 },
               ]
@@ -78,27 +78,27 @@ module.exports = {
               items: [
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/pi/introduction',
+                  id: 'decentralized_perpetuals/pi/introduction',
                   label: ' Introduction',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/pi/overview',
+                  id: 'decentralized_perpetuals/pi/overview',
                   label: 'Overview',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/pi/architecture',
+                  id: 'decentralized_perpetuals/pi/architecture',
                   label: 'Architecture',
                 },
                 {
                   type: 'doc',
-                  id: 'perpetual_futures/pi/fees',
+                  id: 'decentralized_perpetuals/pi/fees',
                   label: 'Fees',
                 },
                  {
                   type: 'doc',
-                  id: 'perpetual_futures/pi/meem',
+                  id: 'decentralized_perpetuals/pi/meem',
                   label: 'Meem Perp',
                 },
               ]
@@ -107,21 +107,47 @@ module.exports = {
        },
        {
           type: 'category',
-          label: 'Crypdex',
+          label: 'Indexes',
           collapsible: true,
           collapsed: true,
           items: [
             {
-              type: 'doc',
-              id: 'crypdex/intro',
-              label: 'Introduction',
-            },
-            {
-              type: 'doc',
-              id: 'crypdex/architecture',
-              label: 'Architecture',
-            },
-          ]
+              type: 'category',
+              label: 'Crypdex',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'indexes/crypdex/overview',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'indexes/crypdex/architecture',
+                  label: 'Architecture',
+                },
+              ]
+           },
+           {
+              type: 'category',
+              label: 'Synthetics',
+              collapsible: true,
+              collapsed: true,
+              items: [
+                {
+                  type: 'doc',
+                  id: 'indexes/synthetics/overview',
+                  label: 'Overview',
+                },
+                {
+                  type: 'doc',
+                  id: 'indexes/synthetics/architecture',
+                  label: 'Architecture',
+                },
+              ]
+           }
+          ],
        },
        {
           type: 'category',

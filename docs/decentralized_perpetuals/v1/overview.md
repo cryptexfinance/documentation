@@ -5,7 +5,7 @@ sidebar_label: Overview
 slug: overview
 ---
 
-### What is Perpetual Futures v1?
+### What is Decentralized Perpetuals v1?
 Perpetual Futures v1 is a DeFi-native derivatives primitive that enables the creation of two-sided markets, allowing traders to gain exposure to underlying price feeds in a capital-efficient manner. This innovative protocol is live on both Arbitrum and Ethereum Mainnet.
 
 ### How Does It Work?

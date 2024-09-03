@@ -1,12 +1,12 @@
 ---
 id: introduction
-title: Introduction to Cryptex Finance π
-sidebar_label: Introduction to version π
+title: Introduction to Decentralized Perpetuals π
+sidebar_label: Introduction
 slug: intro
 ---
 
-Cryptex Finance version π is an improvement over the previous [version v1](../v1/intro). 
-Cryptex Finance π is built on top of perennial v1 and, it comes with several features.
+Decentralized Perpetuals π is an improvement over the previous [version v1](../v1/intro). 
+Decentralized Perpetuals π is built on top of perennial v1 and, it comes with several features.
 Version π uses low latency on-demand oracles, more capital efficient and provides up to 100x leverage.
 The low latency oracles are built by Pyth network.
 

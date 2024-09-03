@@ -5,13 +5,13 @@ sidebar_label: Overview
 slug: overview
 ---
 
-### What is Perpetual Futures π?
-Perpetual Futures π represents an advancement over Perps v1, introducing fast on-demand oracles to enhance market efficiency and responsiveness.
+### What is Decentralized Perpetuals π?
+Decentralized Perpetuals π represents an advancement over Perps v1, introducing fast on-demand oracles to enhance market efficiency and responsiveness.
 
 ### How Does It Work?
 A market is a two-sided structure involving Makers and Takers that trades synthetic exposure derived from a price oracle, governed by a specific payoff function. Each market operates independently with isolated risk, providing flexibility and security.
 
-A market in Perennial is defined by the following key components:
+A market in decentralized perpetuals is defined by the following key components:
 
 - Oracle: The core of each market, oracles supply one or more prices that feed into the payoff function. The accuracy and speed of these oracles are critical to market performance.
 

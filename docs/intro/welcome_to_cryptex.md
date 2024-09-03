@@ -10,13 +10,13 @@ Welcome to Cryptex, the pioneering DeFi super app that's reshaping the landscape
 ### What is Cryptex?
 Cryptex is a unified platform that combines multiple DeFi functionalities:
 
-**Spot Trading**: Execute trades with deep liquidity and minimal slippage across a wide range of assets and blockchains
+**Spot**: Execute trades with deep liquidity and minimal slippage across a wide range of assets and blockchains
 
-***Perpetual Futures**: Access leveraged trading on popular crypto assets.
+***Decentralized Perpetuals**: Access trading on popular crypto tokens.
 
-**Crypdex**: Issue and redeem curated crypto indexes for diversified market exposure.
+**Indexes**: Issue and redeem curated crypto indexes for diversified market exposure.
 
-**Smart Vaults**: Use automated hedging strategies.
+**Smart Vaults**: Use automated strategies.
 
 Our mission is to simplify your DeFi journey while providing cutting edge tools and strategies previously unavailable to users.
 
