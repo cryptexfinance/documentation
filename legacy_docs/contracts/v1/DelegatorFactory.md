@@ -320,7 +320,7 @@ function withdraw(address delegator_, uint256 amount_)
    updateReward(msg.sender);
 ```
 
-Removes amount_ from delegator_. Delegator must be valid and amount has to be greater than 0. amount_ must be <= that
+Removes amount_ from delegator_. Delegator must be valid and amount has to be greater than 0. amount_ must be `<=` that
 current user stake. amount_ is transferred from the delegator contract to the staker. Update rewards on call. Requires
 that at least waitTime has passed since delegation to unDelegate.
 

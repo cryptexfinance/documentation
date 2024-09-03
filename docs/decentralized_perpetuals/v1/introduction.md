@@ -1,11 +1,11 @@
 ---
 id: introduction
-title: Introduction to Cryptex Finance V2
-sidebar_label: Introduction to Cryptex V2
+title: Introduction to Decentralized Perpetuals v1
+sidebar_label: Introduction
 slug: intro
 ---
 
-Cryptex Finance V2 is a DeFi protocol that makes crypto native markets tradable.
+Decentralized Perpetuals V1 is a DeFi protocol that makes crypto native markets tradable.
 The protocol uses Ethereum smart contracts, Perennial derivatives vaults, and Chainlink/Pyth data oracles to provide secure and decentralized trading for users on the Arbitrum Network.
 
 Cryptex Finance is a Decentralized Autonomous Organization (DAO),

@@ -1,0 +1,35 @@
+---
+id: architecture
+title: Crypdex Architecture
+sidebar_label: Architecture
+slug: architecture
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<img alt="Crypdex Architecture" src={useBaseUrl("img/crypdex_architecture.png")} />
+
+### Key Components:
+
+1. **Governance**: Governance(DAO) controls the overall protocol through the Controller component, which manages various actions like adding or removing modules and sets.
+
+2. **Controller**: Acts as the central manager of the system. It has the authority to edit fees, add or remove modules, and add or remove sets. It also interacts with the SetToken to manage these operations.
+
+3. **SetToken**: The SetToken represents the index token itself, which is created by the SetTokenCreator. It is the central component that interacts with multiple modules to perform its functions, such as issuance, redemption, fee accrual, and rebalancing.
+
+4. **SetTokenCreator**: Responsible for creating new SetToken instances, which represent different indexes within the Crypdex protocol.
+
+5. **IntegrationRegistry**: Ensures that any integrations with external protocols or services are validated before interacting with the SetToken. It plays a crucial role in maintaining the security and integrity of the system.
+
+6. **Modules**:
+   - **BasicIssuanceModule**: Allows Liquidity Providers to issue or redeem SetTokens. This module handles the basic interaction for creating and redeeming tokens based on the underlying basket of assets.
+   - **AuctionRebalanceModuleV1**: This module is used by the Manager to rebalance the portfolio. It facilitates auctions where Auction Bidders can buy or sell tokens as needed to maintain the desired asset allocation.
+   - **StreamingFeeModule**: Responsible for accruing fees for the protocol. The Manager can claim their fees by calling this module.
+
+
+### Flow of Actions:
+- **Set Creation**: A new SetToken is created by the SetTokenCreator and managed by the Controller.
+- **Issuance/Redemption**: Liquidity Providers can issue or redeem SetTokens via the BasicIssuanceModule, which interacts directly with the SetToken.
+- **Rebalancing**: When rebalancing is required, the Manager initiates an auction through the AuctionRebalanceModuleV1, involving Auction Bidders.
+- **Fee Management**: Fees are accrued and managed via the StreamingFeeModule, which can mint new tokens as required.
+- **Integration Validation**: Any external services or integrations must be validated through the IntegrationRegistry before they can interact with the SetToken.
