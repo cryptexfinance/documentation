@@ -12,7 +12,7 @@ Cryptex is a unified platform that combines multiple DeFi functionalities:
 
 **Spot**: Execute trades with deep liquidity and minimal slippage across a wide range of assets and blockchains
 
-***Decentralized Perpetuals**: Access trading on popular crypto tokens.
+**Decentralized Perpetuals**: Access trading on popular crypto tokens.
 
 **Indexes**: Issue and redeem curated crypto indexes for diversified market exposure.
 
