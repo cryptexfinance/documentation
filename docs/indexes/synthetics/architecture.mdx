@@ -16,15 +16,15 @@ All Cryptex indexes have the same architecture as show below.
 
 #### Vault Handler
 
-The Vault handler is the primary interface for Cryptex users to manage their Vaults.
+The Vault handler is the primary interface for Cryptex users to manage their collateral.
 The Vault handler allows users to create a vault, deposit collateral, mint index token, burn the index tokens or liquidate vaults.
 Vaults are unique for a each address and only one vault is created for an address.
 The vault parameters can be changed through the Orchestrator.
 
-#### Index Token
+#### Synthetic Token
 
-The index token is an ERC20 compliant contract which can only be minted and burned by a Vault Handler.
-The index token tracks the price of the index price that is obtained from a chainlink oracle.  
+The synthetic token is an ERC20 compliant contract which can only be minted and burned by a Vault Handler.
+The Synthetic token tracks the price of the index price that is obtained from a chainlink oracle.  
 It behaves like a normal ERC20 Token with a cap on its supply that can be changed by the Orchestrator. 
 The Cryptex protocol currently has two index token i.e TCAP and JPEGZ.
 
