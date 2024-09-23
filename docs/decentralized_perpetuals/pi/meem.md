@@ -20,9 +20,9 @@ The closing prices of each token on 07/02/2024 were recorded as the mark prices.
 
 <img alt="MEEM Architecture" src={useBaseUrl("img/meem_architecture.png")} />
 
-- The MEEM is built using chainlinks data streams feeds. 
-- Cryptex bots fetch prices from multiple data streams feeds every second.
+- The MEEM Index is powered by Chainlink low latency data stream feeds.
+- Cryptex bots fetch prices from multiple Chainlink data stream feeds every second.
 - Prices are then aggregated into a single price using the above formula.
-- Prices are check for outliers and written to a database if the checks pass
+- Prices are checked for outliers and written to a database if the checks pass.
 - The data is signed by a EOA owned by Cryptex before writing to database.
-- The perennial bots request feed data and then write the prices onchain.
+- The Perennial bots request feed data and then write the prices onchain.
