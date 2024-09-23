@@ -1,7 +1,7 @@
 ---
 id: meem
-title: Meem Perpetual Futures
-sidebar_label: Meem Perp
+title: MEEM Perpetual Futures
+sidebar_label: MEEM Perp
 slug: /meem-perp
 ---
 import useBaseUrl from "@docusaurus/useBaseUrl";
@@ -20,7 +20,7 @@ The closing prices of each token on 07/02/2024 were recorded as the mark prices.
 
 <img alt="MEEM Architecture" src={useBaseUrl("img/meem_architecture.png")} />
 
-- The meem is built using chainlinks data streams feeds. 
+- The MEEM is built using chainlinks data streams feeds. 
 - Cryptex bots fetch prices from multiple data streams feeds every second.
 - Prices are then aggregated into a single price using the above formula.
 - Prices are check for outliers and written to a database if the checks pass
