@@ -6,7 +6,6 @@ slug: /meem-perp
 ---
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-**Note: MEEM Perp is not yet Live**
 
 The MEEM Perp is a perpetual futures contract based on an index composed of 5 meme tokens: DOGE, PEPE, FLOKI, SHIB, and ETH. Each token in the index is equally weighted, with a weight of 20%.
 
@@ -14,7 +13,7 @@ The MEEM Perp is a perpetual futures contract based on an index composed of 5 me
 
 The closing prices of each token on 07/02/2024 were recorded as the mark prices. The index price is calculated using the following formula:
 ```
-    MEEM Index Price = 0.2 * (Current DOGE Price / DOGE Mark Price) + 0.2 * (Current SHIB Price / SHIB Mark Price) + 0.2 * (Current PEPE Price / PEPE Mark Price) + 0.2 * (Current FLOKI Price / DOGE Mark Price) + 0.2 * (Current FLOKI Price / DOGE ETH Price) 
+    MEEM Index Price = 0.2 * (Current DOGE Price / DOGE Mark Price) + 0.2 * (Current SHIB Price / SHIB Mark Price) + 0.2 * (Current PEPE Price / PEPE Mark Price) + 0.2 * (Current FLOKI Price / FLOKI Mark Price) + 0.2 * (Current ETH Price / ETH Mark Price) 
 ```
 
 ### Architecture
