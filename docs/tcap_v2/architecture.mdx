@@ -1,0 +1,128 @@
+---
+id: architecture
+title: TCAP Architecture
+sidebar_label: Architecture
+slug: architecture
+---
+
+import useBaseUrl from "@docusaurus/useBaseUrl";
+
+<img alt="TCAP Architecture" src={useBaseUrl("img/tcap_v2_architecture.jpeg")} />
+
+
+### System Components and Interactions
+
+1. **Liquidity Provider**
+- Role: Supplies collateral to the Vault.
+
+- Actions:
+ 
+        - Adds or removes collateral.
+        - Mints or burns TCAP tokens based on the collateral deposited.
+
+2. **Vault (Heart of the System)**
+
+- Role: Manages collateral and ensures the smooth functioning of TCAP issuance and redemption.
+
+- Structure: Divided into two pockets:
+
+        - Default Pocket: Holds collateral without generating any interest.
+
+        - Aave Pocket: Deposits collateral into Aave to earn interest.
+
+- Responsibilities:
+
+    - Stores collateral provided by Liquidity Providers.
+
+    - Facilitates the minting and burning of TCAP tokens.
+
+    - Integrates with external components (e.g., Chainlink Oracle, Interest Rate Setter) for stability and price tracking.
+
+3. **TCAP ERC20**
+
+- Role: Represents the synthetic token pegged to the total cryptocurrency market capitalization.
+
+- Actions:
+
+        - Minted or burned through interactions with the Vault.
+
+        - Fee revenue from minting and burning operations is sent to the Cryptex Treasury.
+
+4. **Cryptex Treasury**
+
+- Role: Receives fees from the minting and burning of TCAP tokens.
+
+- Purpose: Maintains the sustainability and growth of the protocol by managing collected fees.
+
+5. **Interest Rate Setter**
+
+- Role: Ensures peg stability for TCAP by dynamically adjusting interest rates.
+
+- Actions:
+
+        - Sets interest rates for collateral in the Vault.
+
+        - Collaborates with the Vault to stabilize TCAP's value.
+
+6. **Chainlink Oracle**
+
+- Role: Provides the market price of the total cryptocurrency market capitalization.
+
+- Actions: Feeds price data to the Vault for accurate minting and burning of TCAP.
+
+7. **Cryptex DAO**
+
+- Role: Decentralized governance body managing the protocol.
+
+- Actions:
+
+        - Modifies protocol parameters as needed.
+
+        - Ensures the protocol adapts to market changes.
+
+8. **Liquidator**
+
+- Role: Ensures the health of the system by liquidating unhealthy Vaults.
+
+- Actions: Monitors Vaults and liquidates positions with insufficient collateral.
+
+### Workflow Overview
+
+**Minting and Burning TCAP**
+
+1. A Liquidity Provider deposits collateral into the Vault.
+
+2. The Vault calculates the amount of TCAP to mint based on the collateral value (tracked using Chainlink Oracle data).
+
+3. Minted TCAP is issued to the Liquidity Provider.
+
+4. For burning, TCAP is returned to the Vault, and the corresponding collateral is released.
+
+**Interest and Collateral Management**
+
+- The Vault manages collateral through two pockets:
+
+    - Default Pocket: Simple storage of collateral.
+
+    - Aave Pocket: Generates interest by lending collateral on Aave.
+
+- The Interest Rate Setter adjusts rates to maintain the TCAP peg and incentivize desired collateral usage.
+
+**Fee Management**
+
+- Minting and burning operations incur fees.
+
+- Fees are transferred to the Cryptex Treasury to support protocol operations and development.
+
+**Stability Mechanism**
+
+- The Interest Rate Setter adjusts rates to counteract price deviations of TCAP.
+
+- The Chainlink Oracle ensures real-time price tracking of the total cryptocurrency market cap.
+
+**Liquidation Process**
+
+- Vaults with insufficient collateral ratios are flagged as unhealthy.
+
+- Liquidators step in to liquidate these Vaults, maintaining system integrity.
+

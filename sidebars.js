@@ -20,6 +20,24 @@ module.exports = {
         },
         {
           type: 'category',
+          label: 'TCAP',
+          collapsible: true,
+          collapsed: true,
+          items: [
+            {
+              type: 'doc',
+              id: 'tcap_v2/overview',
+              label: 'Overview',
+            },
+            {
+              type: 'doc',
+              id: 'tcap_v2/architecture',
+              label: 'Architecture',
+            }
+          ]
+       },
+        {
+          type: 'category',
           label: 'Spot',
           collapsible: true,
           collapsed: true,
