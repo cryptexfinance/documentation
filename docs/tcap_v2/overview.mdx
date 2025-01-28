@@ -1,0 +1,162 @@
+---
+id: overview
+title: Overview of TCAP 2.0
+sidebar_label: Overview
+slug: overview
+---
+
+TCAP 2.0 is an ERC-20 token on Base that tokenizes the Total Market Capitalization of the entire cryptocurrency market. 
+With TCAP, you can gain exposure to the entire crypto market in a single, simple asset.
+
+### How TCAP Works:
+
+	- Tracking the Market Cap: TCAP uses a Chainlink oracle to track the total crypto market cap in real-time.
+	- Nominal Value: To make the value tradable, the total market cap is divided by a divisor, similar to how the S&P 500 is calculated. Here's an example:
+    $$
+    \begin{align*}
+        TotalCryptoMarketCap = \$3,570,000,000,000 \\
+        Divisor = 10,000,000,000 \\
+        TCAP = \dfrac{TotalCryptoMarketCap}{Divisor} = \$357
+    \end{align*}
+    $$
+
+
+
+### Where can I get TCAP tokens?
+Tokens can be minted using a vault, or purchased in the Uniswap ETH/TCAP DEX pool.
+
+### How are TCAP tokens minted?
+
+Users deposit crypto tokens as collateral in the TCAP vault contract on Base, and then borrow TCAP tokens up to the maximum loan-to-value ratio specified for the vault. 
+
+A vault is defined by the crypto token that is accepted as collateral. 
+
+Note, control of the crypto tokens you have placed as collateral in TCAP vaults is retained by your account.
+
+| Crypto token | Collateral Contract Address | Decimal |
+| --- | --- | --- |
+| wETH | [0x4200000000000000000000000000000000000006](https://basescan.org/address/0x4200000000000000000000000000000000000006) | 18 |
+| cbBTC | [0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf](https://basescan.org/address/0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf) | 8 |
+| LBTC | [0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf](https://basescan.org/address/0xecac9c5f704e954931349da37f60e39f515c11c1) | 8 |
+| USDC | [0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913) | 6 |
+
+
+### What is the liquidation threshold and liquidation penalty for each vault?
+
+| Vault Type | Liquidation Threshold | Liquidation Penalty | Max LTV | Min Health Factor after Liquidation | Max Health Factor after Liquidation |
+| --- | --- | --- | --- | --- | --- |
+| ETH | 130% | 10% | 77% | 135% | 140% |
+| cbBTC | 130% | 10% | 77% | 135% | 140% |
+| USDC | 130% | 10% | 77% | 135% | 140% |
+| LBTC | 130% | 10% | 77% | 135% | 140% |
+
+### Why open a vault?
+
+To short the crypto market, or invest the TCAP debt tokens in high yielding DeFi markets. 
+
+### How do I short the crypto market using TCAP?
+
+Open a TCAP vault to borrow TCAP token debt and sell it short.
+
+Example: 
+
+A user places \$1,000 worth of ETH in a TCAP vault. Assuming TCAP/USD is \$150, the user mints 4 TCAP tokens and has a resulting \$600 in vault debt outstanding. The user sells the 4 TCAP tokens in the market for 600 USDC. The price of TCAP/USD goes down by 15%, and the user spends 510 USDC to buy back the 4 TCAP tokens in the market. The user repays the vault debt (4 TCAP tokens) and redeems the $1,000 worth of ETH collateral. The user’s profit, before fees, is 90 USDC. 
+
+### What DeFi strategies exist for TCAP tokens?
+
+As of now, simply providing TCAP token liquidity to the TCAP/ETH pool on Uniswap. 
+
+### How do I bet on crypto adoption using TCAP?
+
+Purchase TCAP tokens in the market (i.e., via the TCAP/ETH Uniswap pool)
+
+### How can I earn CTX tokens by using TCAP?
+
+For a limited time, weekly CTX emissions will be paid to liquidity providers in the Uniswap TCAP/ETH pool. 
+
+Users can also earn points by taking several actions, such as minting TCAP, trading TCAP, lending TCAP, and simply swapping for TCAP and holding it in your account. Points can be redeemed for CTX. 
+
+### What happens if my vault collateral-to-debt ratio drops below the liquidation threshold?
+
+You must top up your vault by depositing more crypto tokens as collateral in order to bring the vault’s collateral-to-debt ratio back above the liquidation threshold. Otherwise, the vault collateral can be liquidated. 
+
+### What is liquidation and how does it work?
+
+Should a user's vault collateral-to-debt ratio drop below the liquidation threshold the user's collateral can be liquidated. A third party known as *liquidators* can buy TCAP tokens on the open market and call the liquidate function of the vault contract. The liquidator burns their TCAP tokens, and in return receives the underlying collateral at a discount. By default only a portion of a user's position can be liquidated which pushes the user's collateral-to-debt ratio back above the liquidation threshold.
+
+### What is the liquidation threshold and how is it set?
+
+The liquidation threshold is the vault’s minimum acceptable collateral-to-debt—below this red line the vault’s collateral is eligible for liquidation. 
+
+The Cryptex Team sets vault liquidation thresholds. This responsibility will be transitioned to the DAO when the team becomes comfortable with the parameters.
+
+### What is the min and max health factor?
+
+A minimum and maximum health factor is enforced after vault liquidation. 
+
+The minimum health factor ensures the user is not liquidated again immediately after liquidation, and the maximum health factor ensures the user does not suffer from a larger than necessary liquidation reward. 
+
+The two ratios form a lower and upper bound for resulting vault collateral-to-debt ratios, post liquidation. The formulas are:
+
+$$
+\begin{align*}
+minCollateralToDebt = liquidationThreshold + minHealthFactor\\
+maxCollateralToDebt = liquidationThreshold + maxHealthFactor
+\end{align*}
+$$
+
+### Can I use Aave’s vault terminology to understand Cryptex vaults?
+
+No. The Aave codebase also uses the terms *liquidation threshold* and *health factor*, but they define them differently. 
+
+In Aave:
+
+$$
+liquidationThreshold = maxLTV + protocolDefinedBuffer
+$$
+
+$$
+healthFactor = (totalCollateralValue * liquidationThreshold)/debtValue
+$$
+
+In Aave, the health factor determines the liquidation eligibility of a vault. 
+
+In Cryptex, the vault’s collateral-to-debt ratio in relation to the liquidation threshold (i.e., the minimum acceptable collateral-to-debt ratio) is used to determine liquidation eligibility.
+
+### How are TCAP tokens pegged to the total crypto market cap?
+
+The token value tracks a Chainlink oracle deployed on the Base blockchain. 
+
+The oracle contract address is: [0x962C0Df8Ca7f7C682B3872ccA31Ea9c8999ab23c](https://basescan.org/address/0x962C0Df8Ca7f7C682B3872ccA31Ea9c8999ab23c)
+
+### How does the market value of TCAP tokens remain pegged to the Chainlink oracle?
+
+The collateral maintained in vaults fully backs the outstanding TCAP token debt. The protocol’s liquidation mechanism ensures the outstanding vault debt is always fully backed. 
+
+A stability fee is charged on outstanding vault debt. This fee helps maintain the balance between the supply of TCAP tokens in the market and demand. 
+
+### What is the stability fee?
+
+The stability fee is set by the protocol in order to help maintain the peg between TCAP token prices and the TCAP oracle price. A stability fee is only needed when the oracle price > market price (fees on TCAP debt reduces TCAP supply → market price of TCAP tokens goes up). 
+
+The vault owner pays a stability fee on outstanding TCAP token debt. 
+
+### Does the Cryptex Finance DAO control updates for the oracle and vault contract?
+
+No, the Cryptex Finance team multisig will retain control. Control will be given to the DAO once the team becomes comfortable with the oracle and vault parameters.
+
+The following Cryptex Finance team multisig contract can update the vault contract: [0x6BF125D25cC4d00FAB06C30095f8DCBe2617bBBD](https://basescan.org/address/0x6BF125D25cC4d00FAB06C30095f8DCBe2617bBBD)
+
+### Am I able to earn yield on my collateral?
+
+Yes, this option is available.
+
+When crypto tokens are deposited into a vault as collateral, the user can choose to *pass-through* the deposit to Aave. This option allows the vault contract to lend the deposited collateral on Aave allowing for better capital efficiency. The user’s collateral takes on additional yield from lending to Aave, as well as additional risk. 
+
+The collateral remains subject to TCAP vault liquidation.
+
+### How can I make money or reduce risk using TCAP vaults?
+
+TCAP vaults provide a natural hedge against crypto long positions, and are designed to be maximally capital efficient. TCAP debt positions can be sold short in order to hedge against broad crypto price declines, all while the vault owner’s capital (ETH, cbBTC, and USDC) continues earning a market yield by passing the active collateral to Aave lending markets. 
+
+Alternatively, TCAP vault debt can be supplied to the Uniswap TCAP/ETH pool. Weekly CTX emissions are paid to pool LPs.

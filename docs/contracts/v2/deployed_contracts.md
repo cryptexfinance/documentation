@@ -20,14 +20,14 @@ slug: /deployed-contracts
 
 ### Contract on Arbitrum for v2
 
-| Contract            | Address                                                                                                                    |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------|
-| TCAP Long           | [0x1cD33f4e6EdeeE8263aa07924c2760CF2EC8aAD0](https://arbiscan.io/address/0x1cD33f4e6EdeeE8263aa07924c2760CF2EC8aAD0#code)  |
-| TCAP Short          | [0x4243b34374cfB0a12f184b92F52035d03d4f7056](https://arbiscan.io/address/0x4243b34374cfB0a12f184b92F52035d03d4f7056#code)  |
-| TCAP Balanced Vault | [0x78C8b241005268895F8aB78c0fe8f72867CD63c2](https://arbiscan.io/address/0x78C8b241005268895F8aB78c0fe8f72867CD63c2#code)  |
-| TCAP Oracle         | [0xaAB5bF2353cc58dE50c54BB0d02d8e0A0333f322](https://arbiscan.io/address/0xaAB5bF2353cc58dE50c54BB0d02d8e0A0333f322#code)  |
-| Liquidity Reward    | [0x938F145D5f3ABf681618Dcc5c71f095B870747Ba](https://arbiscan.io/address/0x938F145D5f3ABf681618Dcc5c71f095B870747Ba#code)  |
-| Message Executor    | [0x3769b6aA269995297a539BEd7a463105466733A5](https://arbiscan.io/address/0x3769b6aA269995297a539BEd7a463105466733A5#code)  |
+| Contract                 | Address                                                                                                                    |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| TCAP perp Long           | [0x1cD33f4e6EdeeE8263aa07924c2760CF2EC8aAD0](https://arbiscan.io/address/0x1cD33f4e6EdeeE8263aa07924c2760CF2EC8aAD0#code)  |
+| TCAP perp Short          | [0x4243b34374cfB0a12f184b92F52035d03d4f7056](https://arbiscan.io/address/0x4243b34374cfB0a12f184b92F52035d03d4f7056#code)  |
+| TCAP perp Balanced Vault | [0x78C8b241005268895F8aB78c0fe8f72867CD63c2](https://arbiscan.io/address/0x78C8b241005268895F8aB78c0fe8f72867CD63c2#code)  |
+| TCAP Oracle              | [0xaAB5bF2353cc58dE50c54BB0d02d8e0A0333f322](https://arbiscan.io/address/0xaAB5bF2353cc58dE50c54BB0d02d8e0A0333f322#code)  |
+| Liquidity Reward         | [0x938F145D5f3ABf681618Dcc5c71f095B870747Ba](https://arbiscan.io/address/0x938F145D5f3ABf681618Dcc5c71f095B870747Ba#code)  |
+| Message Executor         | [0x3769b6aA269995297a539BEd7a463105466733A5](https://arbiscan.io/address/0x3769b6aA269995297a539BEd7a463105466733A5#code)  |
 
 #### External Contracts for v2
 
@@ -52,6 +52,11 @@ slug: /deployed-contracts
 
 ### Contracts on Base
 
-| Contract | Address                                                                                                                    |
-|----------|----------------------------------------------------------------------------------------------------------------------------|
-| CTX      | [0xBB22Ff867F8Ca3D5F2251B4084F6Ec86D4666E14](https://basescan.org/address/0xBB22Ff867F8Ca3D5F2251B4084F6Ec86D4666E14)  |
+| Contract    | Address                                                                                                                |
+|-------------|------------------------------------------------------------------------------------------------------------------------|
+| CTX         | [0xBB22Ff867F8Ca3D5F2251B4084F6Ec86D4666E14](https://basescan.org/address/0xBB22Ff867F8Ca3D5F2251B4084F6Ec86D4666E14)  |
+| TCAP ERC20  | [0x4e99472385a2522aa292b008Da294a78F420A367](https://basescan.org/address/0x4e99472385a2522aa292b008Da294a78F420A367)  |
+| wETH Vault  | [0x4F94C14440ef38B7e551CCFB7A2ce4E464E20F14](https://basescan.org/address/0x4F94C14440ef38B7e551CCFB7A2ce4E464E20F14)  |
+| cbBTC vault | [0xA6afc2be04a1c2ED8bEC7F924307b6254fAFF750](https://basescan.org/address/0xA6afc2be04a1c2ED8bEC7F924307b6254fAFF750)  |
+| USDC vault  | [0x1857e926BB5e5b12e9275818B03F79cdfd799999](https://basescan.org/address/0x1857e926BB5e5b12e9275818B03F79cdfd799999)  |
+| LBTC vault  | [0xD29D6E24946a8e9B55797F5A4EF34EEB0E73a15A](https://basescan.org/address/0xD29D6E24946a8e9B55797F5A4EF34EEB0E73a15A)  |                                                                                 |
