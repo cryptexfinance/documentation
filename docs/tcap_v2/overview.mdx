@@ -1,29 +1,25 @@
 ---
 id: overview
-title: Overview of TCAP
+title: Overview of TCAP 2.0
 sidebar_label: Overview
 slug: overview
 ---
 
-TCAP is an ERC20 token that tokenizes the Total market capitalization of the entire cryptocurrency market.
-TCAP can be thought of as a market index that uses an oracle to track the price of the total cryptocurrency market.
-The Total cryptocurrency market cap currently values in trillions of dollars. To make it a nominal asset, the value is divided by a divisor. 
-For example, if the total crypto market cap resides at 350 billion dollars, then we add a divisor to that number, just like the S&P 500 or any major financial index would. 
-The price calculation for TCAP is as follows:
+TCAP is an ERC-20 token on Base that tokenizes the Total Market Capitalization of the entire cryptocurrency market. 
+With TCAP, you can gain exposure to the entire crypto market in a single, simple asset.
 
+How TCAP Works:
 
-$$
-\begin{align*}
-    TotalCryptoMarketCap = \$350,000,000,000 \\
-    Divisor = 10,000,000,000 \\
-    TCAP = \dfrac{TotalCryptoMarketCap}{Divisor} = \$35
-\end{align*}
-$$
+	- Tracking the Market Cap: TCAP uses a Chainlink oracle to track the total crypto market cap in real-time.
+	- Nominal Value: To make the value tradable, the total market cap is divided by a divisor, similar to how the S&P 500 is calculated. Here's an example:
+    $$
+    \begin{align*}
+        TotalCryptoMarketCap = \$350,000,000,000 \\
+        Divisor = 10,000,000,000 \\
+        TCAP = \dfrac{TotalCryptoMarketCap}{Divisor} = \$35
+    \end{align*}
+    $$
 
-
-TCAPs are then minted upon being collateralized by an underlying asset, such as ETH or DAI. 
-What the user receives in return is a newly minted asset nominalized token that moves in real time to the price of the underlying total market cap metric is tracking. 
-Each TCAP is algorithmically collateralized by a corresponding amount of ETH or DAI needed to appropriately back each token, thus creating price exposure to the entire cryptocurrency sector with the single push of a button.
 
 
 ### Where can I get TCAP tokens?
@@ -40,8 +36,8 @@ Note, control of the crypto tokens you have placed as collateral in TCAP vaults 
 | Crypto token | Collateral Contract Address | Decimal |
 | --- | --- | --- |
 | wETH | [0x4200000000000000000000000000000000000006](https://basescan.org/address/0x4200000000000000000000000000000000000006) | 18 |
-| cbBTC | [0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf](https://basescan.org/address/0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf) | 18 |
-| lBTC | [0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf](https://basescan.org/address/0xecac9c5f704e954931349da37f60e39f515c11c1) | 8 |
+| cbBTC | [0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf](https://basescan.org/address/0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf) | 8 |
+| LBTC | [0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf](https://basescan.org/address/0xecac9c5f704e954931349da37f60e39f515c11c1) | 8 |
 | USDC | [0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913](https://basescan.org/address/0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913) | 6 |
 
 
