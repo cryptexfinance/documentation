@@ -20,7 +20,7 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'TCAP',
+          label: 'TCAP 2.0',
           collapsible: true,
           collapsed: true,
           items: [
